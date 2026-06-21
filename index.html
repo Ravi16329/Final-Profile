@@ -1,61 +1,1211 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rolling Curtain Scroll</title>
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raveendra Kuchu — Backend Developer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-  <link rel="stylesheet" href="newProfile.css" />
+
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="section1.css">
+    <link rel="stylesheet" href="section12.css">
+    <link rel="stylesheet" href="section9.css">
+    <link rel="stylesheet" href="section4.css">
+    <link rel="stylesheet" href="section7.css">
+
+
 </head>
+
 <body>
 
-  <!-- Section 1 -->
-  <div class="section d-flex align-items-center justify-content-center text-center" id="section1">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>🎭 Welcome to My Profile</h1>
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="section" id="s1">
+        <div class="bg-grid"></div>
+        <div class="bg-glow g1"></div>
+        <div class="bg-glow g2"></div>
+
+        <!-- SCANLINES OVERLAY -->
+        <div class="scanlines"></div>
+
+        <!-- CORNER DECORATIONS -->
+        <div class="corner corner-tl">
+            <span class="corner-line-h"></span>
+            <span class="corner-line-v"></span>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 2 -->
-  <div class="section d-flex align-items-center justify-content-center text-center" id="section2">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>👨‍💻 About Me</h1>
+        <div class="corner corner-tr">
+            <span class="corner-line-h"></span>
+            <span class="corner-line-v"></span>
         </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Section 3 -->
-  <div class="section d-flex align-items-center justify-content-center text-center" id="section3">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h1>📁 Projects</h1>
+        <div class="corner corner-bl">
+            <span class="corner-line-h"></span>
+            <span class="corner-line-v"></span>
         </div>
-      </div>
+        <div class="corner corner-br">
+            <span class="corner-line-h"></span>
+            <span class="corner-line-v"></span>
+        </div>
+
+        <!-- TOP HUD BAR -->
+        <div class="hud-top">
+            <div class="hud-left">
+                <div class="hud-tag">&lt; PORTFOLIO_2026 /&gt;</div>
+                <div class="hud-status">
+                    <span class="live-dot"></span>
+                    <span class="live-txt">OPEN TO WORK</span>
+                </div>
+            </div>
+            <div class="hud-right">
+                <div class="hud-stat"><span class="hs-val">3+</span><span class="hs-label">YRS EXP</span></div>
+                <div class="hud-divider"></div>
+                <div class="hud-stat"><span class="hs-val">20+</span><span class="hs-label">PROJECTS</span></div>
+                <div class="hud-divider"></div>
+                <div class="hud-stat"><span class="hs-val">500+</span><span class="hs-label">COMMITS</span></div>
+            </div>
+        </div>
+
+        <!-- MAIN HERO CONTENT -->
+        <div class="section-inner hero-layout">
+
+            <!-- LEFT SIDE -->
+            <div class="hero-left">
+                <div class="hero-pre">
+                    <span class="pre-bracket">[</span>
+                    <span class="pre-text">BACKEND_DEVELOPER</span>
+                    <span class="pre-bracket">]</span>
+                </div>
+
+                <h1 class="hero-name">
+                    <span class="name-line1">Raveendra</span>
+                    <span class="name-line2">Kuchu<span class="cursor-blink">_</span></span>
+                </h1>
+
+                <div class="tech-tags">
+                    <span class="tech-tag tag-node">⬡ Node.js</span>
+                    <span class="tech-tag tag-java">☕ Java</span>
+                    <span class="tech-tag tag-api">⚡ REST APIs</span>
+                </div>
+
+                <p class="hero-value">
+                    Building backend systems that <span class="highlight-text">scale</span> —
+                    clean architecture, thoughtful APIs, and engineering
+                    that performs under <span class="highlight-text">real-world load</span>.
+                </p>
+
+                <div class="cta-row">
+                    <button class="btn-accent btn-gamer">
+                        <span class="btn-icon">▶</span> Download Resume
+                    </button>
+                    <button class="btn-ghost btn-gamer" onclick="goToSection(11)">
+                        <span class="btn-icon">✉</span> Contact Me
+                    </button>
+                </div>
+
+                <!-- XP BAR -->
+                <div class="xp-section">
+                    <div class="xp-label">
+                        <span>SKILL LEVEL</span>
+                        <span class="xp-val">LVL 4 — ADVANCED</span>
+                    </div>
+                    <div class="xp-bar-wrap">
+                        <div class="xp-bar-fill"></div>
+                        <div class="xp-bar-glow"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIDDLE VISUAL — paste between hero-left and hero-right -->
+            <div class="hero-middle" id="heroMiddle">
+                <canvas id="heroMidCanvas"></canvas>
+                <div class="hm-orbit-label hm-label-1">Java</div>
+                <div class="hm-orbit-label hm-label-2">Node.js</div>
+                <div class="hm-orbit-label hm-label-3">MongoDB</div>
+                <div class="hm-orbit-label hm-label-4">SQL</div>
+                <div class="hm-orbit-label hm-label-5">Redis</div>
+                <div class="hm-orbit-label hm-label-6">API's</div>
+            </div>
+
+
+            <!-- RIGHT SIDE — STATS PANEL -->
+            <div class="hero-right">
+                <div class="stats-panel">
+                    <div class="sp-header">
+                        <span class="sp-tag">Talents </span>
+                    </div>
+                    <div class="sp-body">
+                        <div class="sp-row">
+                            <span class="sp-key">CLASS</span>
+                            <span class="sp-val">Backend Engineer</span>
+                        </div>
+                        <div class="sp-row">
+                            <span class="sp-key">STACK</span>
+                            <span class="sp-val">Node · Java · DB</span>
+                        </div>
+                        <div class="sp-row">
+                            <span class="sp-key">STATUS</span>
+                            <span class="sp-val sp-green">● Available</span>
+                        </div>
+                        <div class="sp-row">
+                            <span class="sp-key">LOCATION</span>
+                            <span class="sp-val">India 🇮🇳</span>
+                        </div>
+                        <div class="sp-row">
+                            <span class="sp-key">LEETCODE</span>
+                            <span class="sp-val">500+ Solved</span>
+                        </div>
+                        <div class="sp-divider"></div>
+                        <div class="sp-skills">
+                            <div class="sp-skill-row">
+                                <span>Backend</span>
+                                <div class="sp-skill-bar">
+                                    <div class="sp-fill" style="width:90%"></div>
+                                </div>
+                                <span class="sp-pct">90</span>
+                            </div>
+                            <div class="sp-skill-row">
+                                <span>Java</span>
+                                <div class="sp-skill-bar">
+                                    <div class="sp-fill" style="width:85%"></div>
+                                </div>
+                                <span class="sp-pct">85</span>
+                            </div>
+                            <div class="sp-skill-row">
+                                <span>Node.js</span>
+                                <div class="sp-skill-bar">
+                                    <div class="sp-fill sp-fill-cyan" style="width:88%"></div>
+                                </div>
+                                <span class="sp-pct">88</span>
+                            </div>
+                            <div class="sp-skill-row">
+                                <span>DSA</span>
+                                <div class="sp-skill-bar">
+                                    <div class="sp-fill sp-fill-yellow" style="width:78%"></div>
+                                </div>
+                                <span class="sp-pct">78</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHARACTER SCENE (keep as-is) -->
+        <div id="scene">
+            <div class="road">
+                <div class="road-line"></div>
+                <div class="road-glow"></div>
+            </div>
+            <div id="character">
+                <div class="hi-bubble">👋 Hello Sir</div>
+                <svg id="char-svg" width="80" height="130" viewBox="0 0 80 130" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" overflow="visible">
+                    <ellipse cx="40" cy="126" rx="28" ry="5" fill="rgba(0,0,0,0.35)" />
+                    <g id="bodyGroup">
+                        <g id="leftLeg">
+                            <rect x="28" y="88" width="12" height="22" rx="6" fill="#3B3BDB" />
+                            <rect x="28" y="106" width="12" height="20" rx="6" fill="#2828AA" />
+                            <rect x="24" y="122" width="18" height="8" rx="4" fill="#1a1a6e" />
+                        </g>
+                        <g id="rightLeg">
+                            <rect x="40" y="88" width="12" height="22" rx="6" fill="#3B3BDB" />
+                            <rect x="40" y="106" width="12" height="20" rx="6" fill="#2828AA" />
+                            <rect x="38" y="122" width="18" height="8" rx="4" fill="#1a1a6e" />
+                        </g>
+                        <rect x="22" y="56" width="36" height="38" rx="10" fill="#6C63FF" />
+                        <rect x="32" y="62" width="16" height="3" rx="2" fill="rgba(255,255,255,0.2)" />
+                        <rect x="35" y="68" width="10" height="2" rx="1" fill="rgba(255,255,255,0.15)" />
+                        <g id="leftArm">
+                            <rect x="10" y="56" width="14" height="10" rx="6" fill="#6C63FF" />
+                            <rect x="6" y="62" width="12" height="10" rx="5" fill="#5a52e0" />
+                            <ellipse cx="10" cy="74" rx="7" ry="6" fill="#f4c17a" />
+                            <circle cx="6" cy="72" r="2.5" fill="#e8a850" />
+                            <circle cx="10" cy="71" r="2.5" fill="#e8a850" />
+                            <circle cx="14" cy="72" r="2.5" fill="#e8a850" />
+                        </g>
+                        <g id="rightArm">
+                            <rect x="56" y="60" width="14" height="10" rx="6" fill="#6C63FF" />
+                            <rect x="58" y="68" width="12" height="10" rx="5" fill="#5a52e0" />
+                            <ellipse cx="66" cy="80" rx="6" ry="5" fill="#f4c17a" />
+                        </g>
+                        <rect x="33" y="50" width="14" height="10" rx="5" fill="#f4c17a" />
+                        <ellipse cx="40" cy="38" rx="20" ry="22" fill="#f4c17a" />
+                        <ellipse cx="40" cy="18" rx="20" ry="10" fill="#1a0a00" />
+                        <ellipse cx="22" cy="28" rx="6" ry="10" fill="#1a0a00" />
+                        <ellipse cx="58" cy="28" rx="6" ry="10" fill="#1a0a00" />
+                        <ellipse id="leftEye" cx="32" cy="36" rx="4" ry="4.5" fill="#fff" />
+                        <circle id="leftPupil" cx="33" cy="37" r="2.5" fill="#1a0a00" />
+                        <circle cx="33.5" cy="36" r="1" fill="#fff" />
+                        <ellipse id="rightEye" cx="48" cy="36" rx="4" ry="4.5" fill="#fff" />
+                        <circle id="rightPupil" cx="49" cy="37" r="2.5" fill="#1a0a00" />
+                        <circle cx="49.5" cy="36" r="1" fill="#fff" />
+                        <path d="M28 30 Q32 27 36 30" stroke="#1a0a00" stroke-width="2" stroke-linecap="round"
+                            fill="none" />
+                        <path d="M44 30 Q48 27 52 30" stroke="#1a0a00" stroke-width="2" stroke-linecap="round"
+                            fill="none" />
+                        <ellipse cx="40" cy="42" rx="3" ry="2" fill="#e8a850" />
+                        <path id="mouth" d="M34 50 Q40 56 46 50" stroke="#c0704a" stroke-width="2.5"
+                            stroke-linecap="round" fill="rgba(180,60,40,0.3)" />
+                        <ellipse cx="20" cy="38" rx="4" ry="6" fill="#f4c17a" />
+                        <ellipse cx="60" cy="38" rx="4" ry="6" fill="#f4c17a" />
+                    </g>
+                </svg>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- ===== SECTION 2: ABOUT ===== -->
+    <section class="section" id="s2">
+        <div class="bg-grid"></div>
+        <div class="bg-glow g1"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">01 · About</div>
+            <h2 class="section-title">About Me</h2>
+            <p class="bio-text">I'm a Computer Science student focused on backend engineering and scalable system
+                design. I enjoy building APIs, working with databases, and creating applications that solve real
+                problems. Currently exploring backend architecture, performance optimization, and full-stack development
+                while building production-style projects.
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-card-label">Studying</div>
+                    <div class="about-card-text">M.Tech Computer Science · VIT-AP University · 2022–2028</div>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-label">Building</div>
+                    <div class="about-card-text">BUILDING
+
+                        Backend Systems,
+                        REST APIs,
+                        Web Applications,
+                        Interactive UI</div>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-label">Targeting</div>
+                    <div class="about-card-text">Backend Developer,
+                        Full-Stack Developer,
+                        Software Engineer</div>
+                </div>
+                <div class="about-card">
+                    <div class="about-card-label">Interested in</div>
+                    <div class="about-card-text">INTERESTS
+
+                        Node.js,
+                        System Design,
+                        Databases,
+                        Problem Solving</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 3: SKILLS ===== -->
+    <section class="section" id="s3">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">02 · Skills</div>
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-group">
+                    <div class="skill-group-title">Languages</div>
+                    <div class="skill-item"><span class="skill-name">Java</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">JavaScript</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">Python</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">C++</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Backend</div>
+                    <div class="skill-item"><span class="skill-name">Node.js</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">Spring Boot</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">Express.js</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">REST APIs</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:90%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Database</div>
+                    <div class="skill-item"><span class="skill-name">MongoDB</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">MySQL</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">Redis</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">PostgreSQL</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Frontend</div>
+                    <div class="skill-item"><span class="skill-name">React</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">HTML/CSS</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">TypeScript</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:65%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <div class="skill-group-title">Tools & DevOps</div>
+                    <div class="skill-item"><span class="skill-name">Git / GitHub</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">Docker</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">Linux</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item"><span class="skill-name">Postman</span>
+                        <div class="skill-bar-wrap">
+                            <div class="skill-bar" style="width:88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 4 : PROJECTS ===== -->
+    <section class="section" id="s4">
+        <div class="bg-grid"></div>
+
+        <div class="section-inner">
+
+            <div class="section-eyebrow">
+                03 · Projects
+            </div>
+
+            <h2 class="section-title">
+                What I've Built
+            </h2>
+
+            <div class="projects-scroll" id="projectsStack">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">🎆</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/DiwaliCrackersMain"
+                                target="_blank">GitHub</a>
+                            <a class="pc-link" href="https://ravi16329.github.io/Diwali-Crackers/"
+                                target="_blank">Live</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">Diwali Crackers</div>
+                    <div class="pc-problem">Interactive Diwali celebration website with 3D animations.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">HTML</span>
+                        <span class="ptag">CSS</span>
+                        <span class="ptag">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">🍱</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/FSDS-FoodSurplusDistributionSystem-"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">Food Surplus Distribution System</div>
+                    <div class="pc-problem">Platform connecting donors, receivers and delivery agents.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">HTML</span>
+                        <span class="ptag">Firebase</span>
+                        <span class="ptag">Node</span>
+                    </div>
+                </div>
+
+                <!-- Project 3 - New -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">🌐</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/All-3D-Animation-Practice"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">3D Animation Practice</div>
+                    <div class="pc-problem">Collection of 3D web animations and interactive experiments.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">Three.js</span>
+                        <span class="ptag">JavaScript</span>
+                        <span class="ptag">GSAP</span>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">📋</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/ToDoList" target="_blank">GitHub</a>
+                            <a class="pc-link" href="https://ravi16329.github.io/ToDoList/" target="_blank">Live</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">ToDo List App</div>
+                    <div class="pc-problem">Task management app with clean UI and animations.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">JS</span>
+                        <span class="ptag">HTML</span>
+                        <span class="ptag">CSS</span>
+                    </div>
+                </div>
+
+                <!-- Project 5 - New -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">📚</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/English-Teacher"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">English Teacher Platform</div>
+                    <div class="pc-problem">Interactive platform for learning English with lessons and quizzes.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">HTML</span>
+                        <span class="ptag">CSS</span>
+                        <span class="ptag">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Project 6 - New -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">🔄</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/Rolling-Profile"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">Rolling Profile</div>
+                    <div class="pc-problem">Animated rolling profile with smooth interactions and effects.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">CSS</span>
+                        <span class="ptag">JavaScript</span>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">📊</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/VIT-AP-CGPA-ATTENDANCE-Calculator"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">CGPA & Attendance Calculator</div>
+                    <div class="pc-problem">Calculator for attendance and CGPA tracking.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">HTML</span>
+                        <span class="ptag">JS</span>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">👨‍💻</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/MyProfile" target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">Personal Portfolio</div>
+                    <div class="pc-problem">Modern developer portfolio with animations.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">CSS</span>
+                        <span class="ptag">GSAP</span>
+                    </div>
+                </div>
+
+                <!-- Project 9, 10, 11 - New -->
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">🎓</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/Education-Platform"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">Education Platform</div>
+                    <div class="pc-problem">Online learning platform with course management.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">Node.js</span>
+                        <span class="ptag">MongoDB</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">🍽️</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/Restaurant-Page"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">Restaurant Landing Page</div>
+                    <div class="pc-problem">Modern restaurant website with smooth animations.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">HTML</span>
+                        <span class="ptag">CSS</span>
+                        <span class="ptag">JavaScript</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="pc-header">
+                        <div class="pc-icon">🏦</div>
+                        <div class="pc-links">
+                            <a class="pc-link" href="https://github.com/Ravi16329/BANKING-SYSTEM"
+                                target="_blank">GitHub</a>
+                        </div>
+                    </div>
+                    <div class="pc-title">Banking System</div>
+                    <div class="pc-problem">Full-stack banking system with transactions and dashboard.</div>
+                    <div class="pc-tags">
+                        <span class="ptag">Node.js</span>
+                        <span class="ptag">MongoDB</span>
+                        <span class="ptag">Express</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <button id="nextProject">NEXT →</button>
+            <p id="stackCounter">1 / 11</p>
+
+        </div>
+    </section>
+
+
+
+    <!-- ===== SECTION 5: FEATURED PROJECT ===== -->
+    <section class="section" id="s5">
+        <div class="bg-grid"></div>
+        <div class="bg-glow g1"
+            style="width:700px;height:700px;background:rgba(108,99,255,0.07);top:50%;left:50%;transform:translate(-50%,-50%)">
+        </div>
+        <div class="section-inner">
+            <div class="section-eyebrow">04 · Case Study</div>
+            <h2 class="section-title">Featured Project</h2>
+            <div class="featured-box">
+                <div style="display:flex;align-items:center;gap:12px;margin-bottom:0.8rem">
+                    <span style="font-size:1.8rem">🔗</span>
+                    <div>
+                        <div style="font-size:16px;font-weight:600;color:#fff">URL Shortener Service</div>
+                        <div style="font-size:11px;color:var(--accent);font-family:'JetBrains Mono',monospace">
+                            Node.js ·
+                            Redis · MongoDB · Express</div>
+                    </div>
+                </div>
+                <p class="feat-desc">Designed and built a production-grade URL shortener handling high concurrency.
+                    The
+                    key challenge was ensuring sub-millisecond redirect latency at scale — solved by using Redis as
+                    a
+                    lookup cache, with MongoDB as persistent storage. Implemented collision-resistant Base62 ID
+                    generation, rate limiting per IP, and a real-time analytics pipeline. Deployed on a VPS with
+                    Nginx
+                    reverse proxy and PM2 process management.</p>
+                <div class="feat-tags-row">
+                    <span class="feat-tag">Caching Strategy</span><span class="feat-tag">Rate Limiting</span><span
+                        class="feat-tag">Analytics</span><span class="feat-tag">Base62 Encoding</span><span
+                        class="feat-tag">Nginx</span>
+                </div>
+                <div class="feat-meta">
+                    <div class="feat-stat">
+                        <div class="feat-stat-val">10K+</div>
+                        <div class="feat-stat-label">Requests / Day</div>
+                    </div>
+                    <div class="feat-stat">
+                        <div class="feat-stat-val">&lt;5ms</div>
+                        <div class="feat-stat-label">Avg Latency</div>
+                    </div>
+                    <div class="feat-stat">
+                        <div class="feat-stat-val">99.9%</div>
+                        <div class="feat-stat-label">Uptime</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 6: EXPERIENCE ===== -->
+    <section class="section" id="s6">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">05 · Experience</div>
+            <h2 class="section-title">Work & Contributions</h2>
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-left">
+                        <div class="tl-dot"></div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <div class="tl-title">Backend Developer Intern</div>
+                        <div class="tl-company">Company Name</div>
+                        <div class="tl-period">Jun 2024 – Aug 2024 · Remote</div>
+                        <div class="tl-desc">Built and maintained REST APIs consumed by 5000+ users. Optimized slow
+                            queries reducing average response time by 40%. Collaborated with frontend team on API
+                            contracts.</div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-left">
+                        <div class="tl-dot" style="background:var(--accent2)"></div>
+                        <div class="tl-line"></div>
+                    </div>
+                    <div class="tl-content">
+                        <div class="tl-title">Open Source Contributor</div>
+                        <div class="tl-company">GitHub · Various Projects</div>
+                        <div class="tl-period">2023 – Present</div>
+                        <div class="tl-desc">Contributed bug fixes and features to Node.js and Java open source
+                            projects. 15+ merged PRs across multiple repositories.</div>
+                    </div>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-left">
+                        <div class="tl-dot" style="background:#8B5CF6"></div>
+                    </div>
+                    <div class="tl-content">
+                        <div class="tl-title">Technical Lead — College Club</div>
+                        <div class="tl-company">Dev Club · Your University</div>
+                        <div class="tl-period">2023 – 2024</div>
+                        <div class="tl-desc">Led a team of 8 developers to build the college's event management
+                            platform. Handled architecture decisions and code reviews.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     SECTION 7 — ORBITAL TIMELINE (FIXED, SELF-CONTAINED, DEBUGGED)
+     Delete ALL previous #s7 HTML/CSS/JS versions before pasting this
+     ================================================================ -->
+
+    <!-- ============ HTML ============ -->
+    <section class="section" id="s7">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">06 · Education</div>
+            <h2 class="section-title">Academic Journey</h2>
+
+            <div class="orbit-stage" id="orbitStage">
+                <div class="orbit-track"></div>
+                <div class="orbit-center">
+                    <div class="orbit-center-ring r1"></div>
+                    <div class="orbit-center-ring r2"></div>
+                    <div class="orbit-center-core">🎓</div>
+                </div>
+                <div class="orbit-nodes" id="orbitNodes"></div>
+            </div>
+
+            <p
+                style="font-size:11px;color:var(--muted);margin-top:8px;font-family:'JetBrains Mono',monospace;text-align:center">
+                click a node to see details &nbsp;·&nbsp; click empty space to reset
+            </p>
+
+            <div style="max-width:640px;width:100%;margin-top:20px">
+                <div
+                    style="background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.1rem 1.3rem;display:flex;gap:14px;align-items:center">
+                    <span style="font-size:1.4rem">🏫</span>
+                    <div>
+                        <div style="font-size:14px;font-weight:500;color:#fff">Currently pursuing</div>
+                        <div style="font-size:12px;color:var(--accent);font-family:'JetBrains Mono',monospace"> VIT-AP
+                            University &nbsp;·&nbsp; 2023 – 2028</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 8: ACHIEVEMENTS ===== -->
+    <section class="section" id="s8">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">07 · Achievements</div>
+            <h2 class="section-title">Highlights</h2>
+            <div class="ach-grid">
+                <div class="ach-card">
+                    <div class="ach-icon">🏆</div>
+                    <div class="ach-title">Hackathon Winner</div>
+                    <div class="ach-sub">1st place — Build-A-Thon 2024 · 200+ teams</div><span
+                        class="ach-badge">2024</span>
+                </div>
+                <div class="ach-card">
+                    <div class="ach-icon">☁️</div>
+                    <div class="ach-title">AWS Cloud Practitioner</div>
+                    <div class="ach-sub">Certified — Amazon Web Services</div><span class="ach-badge">Certified</span>
+                </div>
+                <div class="ach-card">
+                    <div class="ach-icon">🧩</div>
+                    <div class="ach-title">LeetCode Top 5%</div>
+                    <div class="ach-sub">500+ problems solved · Rating 1850+</div><span class="ach-badge">Active</span>
+                </div>
+                <div class="ach-card">
+                    <div class="ach-icon">🥈</div>
+                    <div class="ach-title">Code Relay — Runner Up</div>
+                    <div class="ach-sub">State-level coding competition · 2023</div><span class="ach-badge">2023</span>
+                </div>
+                <div class="ach-card">
+                    <div class="ach-icon">📜</div>
+                    <div class="ach-title">Node.js Certification</div>
+                    <div class="ach-sub">OpenJS Foundation · Advanced</div><span class="ach-badge">Certified</span>
+                </div>
+                <div class="ach-card">
+                    <div class="ach-icon">⭐</div>
+                    <div class="ach-title">GitHub Star</div>
+                    <div class="ach-sub">400+ stars across personal projects</div><span class="ach-badge">Ongoing</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     SECTION 9: TECH PROFICIENCY — SCATTERED LAYOUT + CLEAN PIE HOVER
+     Replace your ENTIRE old #s9 section (delete any old sphere/grid code)
+     ================================================================ -->
+    <section class="section" id="s9">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">08 · Stack</div>
+            <h2 class="main-section-title">Tech Proficiency</h2>
+
+            <div class="tech-cloud" id="techCloud">
+
+                <div class="tech-item java-card" data-pct="95" data-level="legend">
+                    <div class="tech-icon">☕</div>
+                    <div class="tech-name">JAVA</div>
+                    <div class="tech-rank">
+                        MAIN
+                    </div>
+                </div>
+
+                <div class="tech-item" data-pct="88" data-level="adv">
+                    <div class="tech-icon">🟩</div>
+                    <div class="tech-name">Node.js</div>
+                </div>
+                <div class="tech-item" data-pct="70" data-level="int">
+                    <div class="tech-icon">🐍</div>
+                    <div class="tech-name">Python</div>
+                </div>
+                <div class="tech-item" data-pct="65" data-level="int">
+                    <div class="tech-icon">🌱</div>
+                    <div class="tech-name">Spring</div>
+                </div>
+
+                <div class="tech-item java-card" data-pct="95" data-level="legend">
+                    <div class="tech-icon">🍃</div>
+                    <div class="tech-name">MONGODB</div>
+                    <div class="tech-rank">
+                        MAIN
+                    </div>
+                </div>
+
+                <div class="tech-item java-card" data-pct="95" data-level="legend">
+                    <div class="tech-icon">🐬</div>
+                    <div class="tech-name">MYSQL</div>
+                    <div class="tech-rank">
+                        MAIN
+                    </div>
+                </div>
+
+                <div class="tech-item" data-pct="60" data-level="int">
+                    <div class="tech-icon">🔴</div>
+                    <div class="tech-name">Redis</div>
+                </div>
+                <div class="tech-item" data-pct="72" data-level="int">
+                    <div class="tech-icon">⚛️</div>
+                    <div class="tech-name">React</div>
+                </div>
+
+                <div class="tech-item java-card" data-pct="95" data-level="legend">
+                    <div class="tech-icon">🔀</div>
+                    <div class="tech-name">GIT</div>
+                    <div class="tech-rank">
+                        MAIN
+                    </div>
+                </div>
+
+
+                <div class="tech-item" data-pct="62" data-level="int">
+                    <div class="tech-icon">🐧</div>
+                    <div class="tech-name">Linux</div>
+                </div>
+                <div class="tech-item" data-pct="88" data-level="adv">
+                    <div class="tech-icon">🔧</div>
+                    <div class="tech-name">Postman</div>
+                </div>
+                <div class="tech-item" data-pct="55" data-level="int">
+                    <div class="tech-icon">📘</div>
+                    <div class="tech-name">TypeScript</div>
+                </div>
+                <div class="tech-item" data-pct="35" data-level="beg">
+                    <div class="tech-icon">☁️</div>
+                    <div class="tech-name">AWS</div>
+                </div>
+                <div class="tech-item" data-pct="80" data-level="adv">
+                    <div class="tech-icon">⚡</div>
+                    <div class="tech-name">Express</div>
+                </div>
+                <div class="tech-item" data-pct="58" data-level="int">
+                    <div class="tech-icon">🎨</div>
+                    <div class="tech-name">Tailwind</div>
+                </div>
+                <div class="tech-item" data-pct="50" data-level="int">
+                    <div class="tech-icon">🔵</div>
+                    <div class="tech-name">GraphQL</div>
+                </div>
+                <div class="tech-item" data-pct="85" data-level="adv">
+                    <div class="tech-icon">📦</div>
+                    <div class="tech-name">npm</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 10: CODING PROFILES ===== -->
+    <section class="section" id="s10">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">09 · Profiles</div>
+            <h2 class="section-title">Coding Presence</h2>
+            <div class="profiles-grid">
+                <div class="profile-card">
+                    <div class="profile-logo">🐙</div>
+                    <div class="profile-name">GitHub</div>
+                    <div class="profile-handle">@yourusername</div>
+                    <div class="profile-stat"><span>30+</span> repos &nbsp;·&nbsp; <span>400+</span> commits</div>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-logo">🧩</div>
+                    <div class="profile-name">LeetCode</div>
+                    <div class="profile-handle">@yourusername</div>
+                    <div class="profile-stat"><span>500+</span> solved &nbsp;·&nbsp; Rating <span>1850</span></div>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-logo">🌐</div>
+                    <div class="profile-name">HackerRank</div>
+                    <div class="profile-handle">@yourusername</div>
+                    <div class="profile-stat">5★ Java &nbsp;·&nbsp; 5★ Problem Solving</div>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-logo">👨‍💻</div>
+                    <div class="profile-name">CodeChef</div>
+                    <div class="profile-handle">@yourusername</div>
+                    <div class="profile-stat">3★ &nbsp;·&nbsp; <span>Max 1650</span> rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 11: RESUME ===== -->
+    <section class="section" id="s11">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="section-eyebrow">10 · Resume</div>
+            <h2 class="section-title">Download Resume</h2>
+            <div class="resume-box">
+                <div class="resume-card">
+                    <div class="resume-preview">📄</div>
+                    <div class="resume-title">Your Name — Backend Developer</div>
+                    <div class="resume-sub">Updated June 2025 · PDF · 1 page<br>Node.js · Java · System Design ·
+                        APIs
+                    </div>
+                    <button class="btn-download">⬇ Download Resume (PDF)</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 12: CONTACT ===== -->
+    <section class="section" id="s12">
+        <div class="bg-grid"></div>
+
+        <!-- ANIMATED PARTICLES -->
+        <canvas id="contactCanvas"
+            style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.9"></canvas>
+
+        <!-- GLOW ORBS -->
+        <div class="c-orb c-orb1"></div>
+        <div class="c-orb c-orb2"></div>
+        <div class="c-orb c-orb3"></div>
+
+        <!-- CORNER BRACKETS -->
+        <div class="c-corner c-corner-tl"><span></span><span></span></div>
+        <div class="c-corner c-corner-tr"><span></span><span></span></div>
+        <div class="c-corner c-corner-bl"><span></span><span></span></div>
+        <div class="c-corner c-corner-br"><span></span><span></span></div>
+
+        <div class="section-inner c-inner">
+
+            <!-- TOP LABEL -->
+            <div class="c-eyebrow">
+                <span class="c-line"></span>
+                <span class="c-eye-text">11 · CONTACT</span>
+                <span class="c-line"></span>
+            </div>
+
+            <!-- HEADLINE -->
+            <h2 class="c-title">
+                Let's <span class="c-title-accent">Build</span><br>
+                Something <span class="c-title-outline">Together</span>
+            </h2>
+            <p class="c-subtitle">Open to full-time roles, freelance projects, and collabs. I reply within 24h.</p>
+
+            <!-- MAIN GRID -->
+            <div class="c-main">
+
+                <!-- LEFT — CONTACT CARDS -->
+                <div class="c-cards">
+
+                    <a class="c-card" href="kuchuravindra16329@gmail.com">
+                        <div class="c-card-glow"></div>
+                        <div class="c-card-icon-wrap" style="--ic:#00D4FF">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#00D4FF"
+                                stroke-width="1.8">
+                                <rect x="2" y="4" width="20" height="16" rx="3" />
+                                <path d="m2 7 10 7 10-7" />
+                            </svg>
+                        </div>
+                        <div class="c-card-body">
+                            <div class="c-card-label">EMAIL</div>
+                            <div class="c-card-value">kuchuravindra16329@gmail.com</div>
+                        </div>
+                        <div class="c-card-arrow">→</div>
+                    </a>
+
+                    <a class="c-card" href="https://www.linkedin.com/in/raveendra-kuchu-767777291/" target="_blank">
+                        <div class="c-card-glow" style="--gc:rgba(10,102,194,0.4)"></div>
+                        <div class="c-card-icon-wrap" style="--ic:#0A66C2">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="#0A66C2">
+                                <path
+                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                                <rect x="2" y="9" width="4" height="12" />
+                                <circle cx="4" cy="4" r="2" />
+                            </svg>
+                        </div>
+                        <div class="c-card-body">
+                            <div class="c-card-label">LINKEDIN</div>
+                            <div class="c-card-value">Raveendra Kuchu</div>
+                        </div>
+                        <div class="c-card-arrow">→</div>
+                    </a>
+
+                    <a class="c-card" href="https://github.com/Ravi16329" target="_blank">
+                        <div class="c-card-glow" style="--gc:rgba(255,255,255,0.08)"></div>
+                        <div class="c-card-icon-wrap" style="--ic:#fff">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff">
+                                <path
+                                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2z" />
+                            </svg>
+                        </div>
+                        <div class="c-card-body">
+                            <div class="c-card-label">GITHUB</div>
+                            <div class="c-card-value">https://github.com/Ravi16329</div>
+                        </div>
+                        <div class="c-card-arrow">→</div>
+                    </a>
+
+                    <a class="c-card" href="https://twitter.com/yourhandle" target="_blank">
+                        <div class="c-card-glow" style="--gc:rgba(29,161,242,0.3)"></div>
+                        <div class="c-card-icon-wrap" style="--ic:#1DA1F2">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="#1DA1F2">
+                                <path
+                                    d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.259 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+                            </svg>
+                        </div>
+                        <div class="c-card-body">
+                            <div class="c-card-label">TWITTER / X</div>
+                            <div class="c-card-value">@raveendra_dev</div>
+                        </div>
+                        <div class="c-card-arrow">→</div>
+                    </a>
+
+                    <!-- AVAILABILITY BADGE -->
+                    <div class="c-avail">
+                        <div class="c-avail-dot"></div>
+                        <div>
+                            <div class="c-avail-title">Currently Available</div>
+                            <div class="c-avail-sub">For full-time & freelance · India 🇮🇳</div>
+                        </div>
+                        <div class="c-avail-ping"></div>
+                    </div>
+                </div>
+
+                <!-- RIGHT — MESSAGE FORM -->
+                <div class="c-form-wrap">
+                    <div class="c-form-header">
+                        <span class="c-form-tag">// SEND_MESSAGE</span>
+                        <span class="c-form-enc">🔒 Encrypted</span>
+                    </div>
+                    <div class="c-form-body">
+                        <div class="c-field">
+                            <label class="c-label">NAME</label>
+                            <input class="c-input" type="text" placeholder="Your full name" id="cf-name" />
+                            <div class="c-field-line"></div>
+                        </div>
+                        <div class="c-field">
+                            <label class="c-label">EMAIL</label>
+                            <input class="c-input" type="email" placeholder="your@email.com" id="cf-email" />
+                            <div class="c-field-line"></div>
+                        </div>
+                        <div class="c-field">
+                            <label class="c-label">SUBJECT</label>
+                            <input class="c-input" type="text" placeholder="Job opportunity / Freelance / Collab"
+                                id="cf-subject" />
+                            <div class="c-field-line"></div>
+                        </div>
+                        <div class="c-field">
+                            <label class="c-label">MESSAGE</label>
+                            <textarea class="c-input c-textarea"
+                                placeholder="Tell me about your project or opportunity..." id="cf-message"
+                                rows="4"></textarea>
+                            <div class="c-field-line"></div>
+                        </div>
+                        <button class="c-send-btn" id="cSendBtn">
+                            <span class="c-send-text">Send Message</span>
+                            <span class="c-send-icon">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <line x1="22" y1="2" x2="11" y2="13" />
+                                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                                </svg>
+                            </span>
+                            <div class="c-send-glow"></div>
+                        </button>
+                        <div class="c-success" id="cSuccess">
+                            ✅ Message sent! I'll reply within 24h.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SECTION 13: FOOTER ===== -->
+    <section class="section" id="s13">
+        <div class="bg-grid"></div>
+        <div class="section-inner">
+            <div class="footer-inner">
+                <div class="footer-name"> Raveendra K </div>
+                <div class="footer-tagline">backend developer · open to work</div>
+                <div class="footer-links">
+                    <span class="footer-link" onclick="goToSection(0)">Home</span>
+                    <span class="footer-link" onclick="goToSection(1)">About</span>
+                    <span class="footer-link" onclick="goToSection(3)">Projects</span>
+                    <span class="footer-link" onclick="goToSection(5)">Experience</span>
+                    <span class="footer-link" onclick="goToSection(9)">Profiles</span>
+                    <span class="footer-link" onclick="goToSection(11)">Contact</span>
+                </div>
+                <div class="footer-divider"></div>
+                <div class="footer-copy">© 2025 Your Name · Built with HTML, CSS & GSAP</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NAV DOTS ===== -->
+    <div class="nav-dots" id="navDots"></div>
+    <div class="dot-label" id="dotLabel"></div>
+
+    <!-- ===== ARROWS ===== -->
+    <div class="nav-arrows">
+        <button class="arrow-btn" id="prevBtn" title="Prev">↑</button>
+        <button class="arrow-btn" id="nextBtn" title="Next">↓</button>
     </div>
-  </div>
 
-  <!-- Navigation Buttons -->
-  <div class="nav-buttons position-fixed bottom-0 end-0 m-4">
-    <button class="btn btn-dark mb-2" id="prevBtn">↑</button>
-    <button class="btn btn-dark" id="nextBtn">↓</button>
-  </div>
+    <!-- ===== COUNTER ===== -->
+    <div class="counter"><span class="cur" id="curNum">01</span> / 13</div>
 
-  <!-- Bootstrap JS Bundle -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="newProfile.js"></script>
+    <!-- ===== KBD HINTS ===== -->
+    <div class="kbd-guide">↑ ↓ navigate<br>Enter · next<br>Backspace · prev</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+    <script src="main.js"></script>
+    <script src="section1.js"></script>
+    <script src="section12.js"></script>
+    <script src="section9.js"></script>
+    <script src="section4.js"></script>
+    <script src="section7.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        emailjs.init("oBi4bcb4xemGEJaJb");
+    </script>
+
 </body>
+
 </html>

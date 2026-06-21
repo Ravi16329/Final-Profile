@@ -1,0 +1,555 @@
+/* === S12 CONTACT — BEYOND LIMITS === */
+#s12 {
+    background:
+        radial-gradient(ellipse at 15% 50%, rgba(108, 99, 255, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 20%, rgba(0, 212, 255, 0.08) 0%, transparent 45%),
+        #07070F;
+    overflow: hidden;
+}
+
+/* CANVAS particles */
+#contactCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+/* ORB GLOWS */
+.c-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.c-orb1 {
+    width: 500px;
+    height: 500px;
+    background: rgba(108, 99, 255, 0.1);
+    top: -150px;
+    left: -100px;
+    animation: orbFloat1 8s ease-in-out infinite;
+}
+
+.c-orb2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 212, 255, 0.07);
+    bottom: -100px;
+    right: -80px;
+    animation: orbFloat2 10s ease-in-out infinite;
+}
+
+.c-orb3 {
+    width: 300px;
+    height: 300px;
+    background: rgba(124, 58, 237, 0.08);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbFloat3 12s ease-in-out infinite;
+}
+
+@keyframes orbFloat1 {
+
+    0%,
+    100% {
+        transform: translate(0, 0)
+    }
+
+    50% {
+        transform: translate(30px, 20px)
+    }
+}
+
+@keyframes orbFloat2 {
+
+    0%,
+    100% {
+        transform: translate(0, 0)
+    }
+
+    50% {
+        transform: translate(-20px, -30px)
+    }
+}
+
+@keyframes orbFloat3 {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%) scale(1)
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.15)
+    }
+}
+
+/* CORNER BRACKETS */
+.c-corner {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.c-corner span {
+    position: absolute;
+    background: var(--accent);
+}
+
+.c-corner span:first-child {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+}
+
+.c-corner span:last-child {
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+}
+
+.c-corner-tl {
+    top: 12px;
+    left: 12px;
+}
+
+.c-corner-tr {
+    top: 12px;
+    right: 12px;
+    transform: scaleX(-1);
+}
+
+.c-corner-bl {
+    bottom: 12px;
+    left: 12px;
+    transform: scaleY(-1);
+}
+
+.c-corner-br {
+    bottom: 12px;
+    right: 12px;
+    transform: scale(-1);
+}
+
+/* INNER LAYOUT */
+.c-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 2rem 4rem !important;
+    gap: 0 !important;
+    position: relative;
+    z-index: 2;
+}
+
+/* EYEBROW */
+.c-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 1rem;
+}
+
+.c-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(108, 99, 255, 0.4), transparent);
+    max-width: 80px;
+}
+
+.c-eye-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--accent);
+    text-transform: uppercase;
+}
+
+/* TITLE */
+.c-title {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 0.6rem;
+}
+
+.c-title-accent {
+    background: linear-gradient(135deg, #a78bfa, #6C63FF, #00D4FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.c-title-outline {
+    -webkit-text-stroke: 2px rgba(108, 99, 255, 0.6);
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.c-subtitle {
+    font-size: clamp(0.82rem, 1vw, 0.95rem);
+    color: rgba(232, 232, 240, 0.4);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+}
+
+/* MAIN GRID */
+.c-main {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 28px;
+    width: 100%;
+    max-width: 960px;
+}
+
+/* ── CONTACT CARDS ── */
+.c-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.c-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: border-color .3s, transform .3s, background .3s;
+    cursor: pointer;
+}
+
+.c-card:hover {
+    border-color: rgba(108, 99, 255, 0.45);
+    background: rgba(108, 99, 255, 0.06);
+    transform: translateX(6px);
+}
+
+.c-card:hover .c-card-glow {
+    opacity: 1;
+}
+
+.c-card:hover .c-card-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.c-card-glow {
+    position: absolute;
+    inset: 0;
+    background: var(--gc, rgba(108, 99, 255, 0.15));
+    opacity: 0;
+    transition: opacity .3s;
+    pointer-events: none;
+}
+
+.c-card-icon-wrap {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 0 20px color-mix(in srgb, var(--ic, #6C63FF) 20%, transparent);
+    transition: box-shadow .3s;
+}
+
+.c-card:hover .c-card-icon-wrap {
+    box-shadow: 0 0 30px color-mix(in srgb, var(--ic, #6C63FF) 40%, transparent);
+}
+
+.c-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.c-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 3px;
+}
+
+.c-card-value {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.85);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.c-card-arrow {
+    font-size: 16px;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-8px);
+    transition: all .3s;
+    flex-shrink: 0;
+}
+
+/* AVAILABILITY */
+.c-avail {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    background: rgba(74, 222, 128, 0.05);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    border-radius: 10px;
+    margin-top: 4px;
+    overflow: hidden;
+}
+
+.c-avail-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px #4ade80;
+    animation: pulse 2s infinite;
+}
+
+.c-avail-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #4ade80;
+}
+
+.c-avail-sub {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 1px;
+}
+
+.c-avail-ping {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid rgba(74, 222, 128, 0.4);
+    animation: pingRing 2s ease-out infinite;
+}
+
+@keyframes pingRing {
+    0% {
+        transform: translateY(-50%) scale(0.8);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-50%) scale(2);
+        opacity: 0;
+    }
+}
+
+/* ── FORM ── */
+.c-form-wrap {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(20px);
+    box-shadow:
+        0 0 0 1px rgba(108, 99, 255, 0.06),
+        0 30px 80px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.c-form-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(108, 99, 255, 0.1);
+    border-bottom: 1px solid rgba(108, 99, 255, 0.18);
+}
+
+.c-form-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 1px;
+}
+
+.c-form-enc {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: rgba(74, 222, 128, 0.7);
+    letter-spacing: 1px;
+}
+
+.c-form-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.c-field {
+    position: relative;
+}
+
+.c-label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 6px;
+}
+
+.c-input {
+    width: 100%;
+    padding: 10px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+    transition: border-color .25s, background .25s;
+    box-sizing: border-box;
+}
+
+.c-input:focus {
+    border-color: rgba(108, 99, 255, 0.6);
+    background: rgba(108, 99, 255, 0.05);
+}
+
+.c-input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+}
+
+.c-textarea {
+    resize: none;
+    line-height: 1.6;
+}
+
+.c-field-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    transition: width .4s ease;
+    border-radius: 0 0 6px 6px;
+}
+
+.c-input:focus~.c-field-line {
+    width: 100%;
+}
+
+/* SEND BUTTON */
+.c-send-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #6C63FF, #8B5CF6, #06b6d4);
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+    background-size: 200% 200%;
+    animation: gradShift 4s ease infinite;
+}
+
+@keyframes gradShift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.c-send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(108, 99, 255, 0.5);
+}
+
+.c-send-btn:active {
+    transform: translateY(0);
+}
+
+.c-send-glow {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), transparent);
+    pointer-events: none;
+}
+
+/* SUCCESS */
+.c-success {
+    display: none;
+    text-align: center;
+    font-size: 13px;
+    color: #4ade80;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(74, 222, 128, 0.08);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    letter-spacing: 0.5px;
+}
+
+
+#contactCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    /* above orbs and grid, below form content */
+    opacity: 1;
+    /* fully visible */
+    display: block;
+}
