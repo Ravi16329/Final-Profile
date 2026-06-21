@@ -240,85 +240,10 @@ body {
 
 /* === S4 PROJECTS === */
 
-/* === S5 FEATURED === */
-#s5 {
-    background:
-        radial-gradient(circle, #EC4899, var(--bg5) 60%);
-}
 
-
-#s5 .g1 {
-    width: 700px;
-    height: 700px;
-    display: flex;
-
-    justify-content: center;
-    align-items: center;
-    background: rgba(108, 99, 255, 0.08);
-}
-
-.featured-box {
-    max-width: 760px;
-    width: 100%;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 2rem;
-    margin-top: 1.2rem
-}
-
-.feat-meta {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 16px;
-    margin-top: 1.2rem
-}
-
-.feat-stat {
-    text-align: center;
-    padding: 1rem;
-    background: rgba(108, 99, 255, 0.06);
-    border-radius: 10px;
-    border: 1px solid rgba(108, 99, 255, 0.12)
-}
-
-.feat-stat-val {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--accent);
-    font-family: 'JetBrains Mono', monospace
-}
-
-.feat-stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    margin-top: 4px
-}
-
-.feat-desc {
-    font-size: 13.5px;
-    color: var(--muted);
-    line-height: 1.75
-}
-
-.feat-tags-row {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-    margin-top: 1rem
-}
-
-.feat-tag {
-    font-size: 11px;
-    padding: 4px 12px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--border);
-    color: var(--muted)
-}
 
 /* === S6 EXPERIENCE === */
-#s6 {
+/* #s6 {
     background:
         radial-gradient(circle, #EF4444, var(--bg6) 60%);
 }
@@ -392,7 +317,7 @@ body {
     font-size: 12.5px;
     color: var(--muted);
     line-height: 1.6
-}
+} */
 
 /* === S7 EDUCATION === */
 
@@ -454,130 +379,9 @@ body {
 }
 
 /* === S9 TECH VISUAL === */
-/* === S10 CODING PROFILES === */
-#s10 {
-    background:
-        radial-gradient(circle, #10B981, var(--bg10) 60%);
-}
-
-.profiles-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 16px;
-    max-width: 760px;
-    width: 100%;
-    margin-top: 1.5rem
-}
-
-.profile-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.3rem;
-    transition: all .3s;
-    cursor: pointer;
-    text-align: center
-}
-
-.profile-card:hover {
-    border-color: rgba(108, 99, 255, 0.4);
-    transform: translateY(-3px)
-}
-
-.profile-logo {
-    font-size: 2rem;
-    margin-bottom: 0.5rem
-}
-
-.profile-name {
-    font-size: 15px;
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 4px
-}
-
-.profile-handle {
-    font-size: 12px;
-    color: var(--accent);
-    font-family: 'JetBrains Mono', monospace;
-    margin-bottom: 8px
-}
-
-.profile-stat {
-    font-size: 11px;
-    color: var(--muted)
-}
-
-.profile-stat span {
-    color: #fff;
-    font-weight: 500
-}
 
 /* === S11 RESUME === */
-#s11 {
-    background:
-        radial-gradient(circle, #F59E0B, var(--bg11) 60%);
-}
 
-.resume-box {
-    max-width: 480px;
-    width: 100%;
-    text-align: center
-}
-
-.resume-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    padding: 3rem 2rem;
-    margin-top: 1.5rem
-}
-
-.resume-preview {
-    width: 80px;
-    height: 100px;
-    background: rgba(108, 99, 255, 0.08);
-    border: 1px solid rgba(108, 99, 255, 0.2);
-    border-radius: 8px;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem
-}
-
-.resume-title {
-    font-size: 18px;
-    font-weight: 500;
-    color: #fff;
-    margin-bottom: 0.4rem
-}
-
-.resume-sub {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 1.8rem;
-    line-height: 1.6
-}
-
-.btn-download {
-    width: 100%;
-    padding: 14px;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--accent), #8B5CF6);
-    color: #fff;
-    border: none;
-    font-size: 15px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: opacity .25s;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.3px
-}
-
-.btn-download:hover {
-    opacity: 0.85
-}
 
 /* s12 has seperate file */
 

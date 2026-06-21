@@ -106,3 +106,25 @@ function resetAuto() {
 
 goToSection(0, true);
 //resetAuto();
+
+
+function downloadResume() {
+    window.open(
+        "Raveendra_Kuchu_Resume.pdf",
+        "_blank"
+    );
+
+    const link = document.createElement("a");
+
+    link.href =
+        "./assets/Raveendra_Kuchu_Resume.pdf";
+
+    link.download =
+        "Raveendra_Kuchu_Resume.pdf";
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+}

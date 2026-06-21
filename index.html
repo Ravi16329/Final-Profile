@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="section9.css">
     <link rel="stylesheet" href="section4.css">
     <link rel="stylesheet" href="section7.css">
+    <link rel="stylesheet" href="section11.css">
 
 
 </head>
@@ -99,8 +100,9 @@
                 </p>
 
                 <div class="cta-row">
-                    <button class="btn-accent btn-gamer">
-                        <span class="btn-icon">▶</span> Download Resume
+                    <button class="btn-accent btn-gamer" onclick="downloadResume()">
+                        <span class="btn-icon">▶</span>
+                        Download Resume
                     </button>
                     <button class="btn-ghost btn-gamer" onclick="goToSection(11)">
                         <span class="btn-icon">✉</span> Contact Me
@@ -646,58 +648,9 @@
 
 
 
-    <!-- ===== SECTION 5: FEATURED PROJECT ===== -->
-    <section class="section" id="s5">
-        <div class="bg-grid"></div>
-        <div class="bg-glow g1"
-            style="width:700px;height:700px;background:rgba(108,99,255,0.07);top:50%;left:50%;transform:translate(-50%,-50%)">
-        </div>
-        <div class="section-inner">
-            <div class="section-eyebrow">04 · Case Study</div>
-            <h2 class="section-title">Featured Project</h2>
-            <div class="featured-box">
-                <div style="display:flex;align-items:center;gap:12px;margin-bottom:0.8rem">
-                    <span style="font-size:1.8rem">🔗</span>
-                    <div>
-                        <div style="font-size:16px;font-weight:600;color:#fff">URL Shortener Service</div>
-                        <div style="font-size:11px;color:var(--accent);font-family:'JetBrains Mono',monospace">
-                            Node.js ·
-                            Redis · MongoDB · Express</div>
-                    </div>
-                </div>
-                <p class="feat-desc">Designed and built a production-grade URL shortener handling high concurrency.
-                    The
-                    key challenge was ensuring sub-millisecond redirect latency at scale — solved by using Redis as
-                    a
-                    lookup cache, with MongoDB as persistent storage. Implemented collision-resistant Base62 ID
-                    generation, rate limiting per IP, and a real-time analytics pipeline. Deployed on a VPS with
-                    Nginx
-                    reverse proxy and PM2 process management.</p>
-                <div class="feat-tags-row">
-                    <span class="feat-tag">Caching Strategy</span><span class="feat-tag">Rate Limiting</span><span
-                        class="feat-tag">Analytics</span><span class="feat-tag">Base62 Encoding</span><span
-                        class="feat-tag">Nginx</span>
-                </div>
-                <div class="feat-meta">
-                    <div class="feat-stat">
-                        <div class="feat-stat-val">10K+</div>
-                        <div class="feat-stat-label">Requests / Day</div>
-                    </div>
-                    <div class="feat-stat">
-                        <div class="feat-stat-val">&lt;5ms</div>
-                        <div class="feat-stat-label">Avg Latency</div>
-                    </div>
-                    <div class="feat-stat">
-                        <div class="feat-stat-val">99.9%</div>
-                        <div class="feat-stat-label">Uptime</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- ===== SECTION 6: EXPERIENCE ===== -->
-    <section class="section" id="s6">
+    <!-- <section class="section" id="s6">
         <div class="bg-grid"></div>
         <div class="section-inner">
             <div class="section-eyebrow">05 · Experience</div>
@@ -744,7 +697,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <!-- ================================================================
      SECTION 7 — ORBITAL TIMELINE (FIXED, SELF-CONTAINED, DEBUGGED)
@@ -932,57 +885,29 @@
         </div>
     </section>
 
-    <!-- ===== SECTION 10: CODING PROFILES ===== -->
-    <section class="section" id="s10">
-        <div class="bg-grid"></div>
-        <div class="section-inner">
-            <div class="section-eyebrow">09 · Profiles</div>
-            <h2 class="section-title">Coding Presence</h2>
-            <div class="profiles-grid">
-                <div class="profile-card">
-                    <div class="profile-logo">🐙</div>
-                    <div class="profile-name">GitHub</div>
-                    <div class="profile-handle">@yourusername</div>
-                    <div class="profile-stat"><span>30+</span> repos &nbsp;·&nbsp; <span>400+</span> commits</div>
-                </div>
-                <div class="profile-card">
-                    <div class="profile-logo">🧩</div>
-                    <div class="profile-name">LeetCode</div>
-                    <div class="profile-handle">@yourusername</div>
-                    <div class="profile-stat"><span>500+</span> solved &nbsp;·&nbsp; Rating <span>1850</span></div>
-                </div>
-                <div class="profile-card">
-                    <div class="profile-logo">🌐</div>
-                    <div class="profile-name">HackerRank</div>
-                    <div class="profile-handle">@yourusername</div>
-                    <div class="profile-stat">5★ Java &nbsp;·&nbsp; 5★ Problem Solving</div>
-                </div>
-                <div class="profile-card">
-                    <div class="profile-logo">👨‍💻</div>
-                    <div class="profile-name">CodeChef</div>
-                    <div class="profile-handle">@yourusername</div>
-                    <div class="profile-stat">3★ &nbsp;·&nbsp; <span>Max 1650</span> rating</div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+
 
     <!-- ===== SECTION 11: RESUME ===== -->
+    <!-- ================================================================
+     SECTION 11: RESUME — INK REVEAL EFFECT
+     Move cursor over the mask to "scratch off" ink and reveal resume
+     Replace your entire #s11 section with this
+     ================================================================ -->
     <section class="section" id="s11">
         <div class="bg-grid"></div>
         <div class="section-inner">
             <div class="section-eyebrow">10 · Resume</div>
-            <h2 class="section-title">Download Resume</h2>
-            <div class="resume-box">
-                <div class="resume-card">
-                    <div class="resume-preview">📄</div>
-                    <div class="resume-title">Your Name — Backend Developer</div>
-                    <div class="resume-sub">Updated June 2025 · PDF · 1 page<br>Node.js · Java · System Design ·
-                        APIs
-                    </div>
-                    <button class="btn-download">⬇ Download Resume (PDF)</button>
-                </div>
+            <h2 class="section-title">My Resume</h2>
+            <p class="ink-hint">move your cursor across the ink to reveal the resume underneath</p>
+
+            <div class="ink-stage" id="inkStage">
+                <iframe src="Raveendra_Kuchu_Resume.pdf" class="resume-pdf-frame" title="Resume preview">
+                </iframe>
+                <canvas id="inkCanvas"></canvas>
             </div>
+
+            <button class="ink-reset-btn" id="inkResetBtn">↺ Re-cover with ink</button>
         </div>
     </section>
 
@@ -1199,6 +1124,7 @@
     <script src="section9.js"></script>
     <script src="section4.js"></script>
     <script src="section7.js"></script>
+    <script src="section11.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
