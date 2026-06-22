@@ -1,0 +1,733 @@
+    /* ================================================================
+   RESPONSIVE WEB DESIGN — ADD THIS FILE AS A NEW <link> in <head>
+   <link rel="stylesheet" href="responsive.css">
+   OR paste everything below at the very bottom of main.css
+   Zero changes to existing CSS. Only additions.
+   ================================================================ */
+
+    /* ================================================================
+   TABLET  480px – 768px
+   ================================================================ */
+    @media (max-width: 768px) {
+
+        /* BASE */
+        html,
+        body {
+            overflow: hidden;
+        }
+
+        .section-inner {
+            padding: 1.2rem 1rem;
+            justify-content: flex-start;
+            padding-top: 70px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        .section-title {
+            font-size: clamp(1.4rem, 5vw, 2rem);
+            margin-bottom: 0.8rem;
+        }
+
+        /* NAV — hide dots on tablet/mobile, keep arrows */
+        .nav-dots {
+            display: none;
+        }
+
+        .dot-label {
+            display: none;
+        }
+
+        .kbd-guide {
+            display: none;
+        }
+
+        .counter {
+            font-size: 10px;
+            bottom: 16px;
+            left: 12px;
+        }
+
+        .nav-arrows {
+            bottom: 14px;
+            right: 14px;
+            gap: 6px;
+        }
+
+        .arrow-btn {
+            width: 36px;
+            height: 36px;
+            font-size: 0.9rem;
+        }
+
+        /* ── S1 HERO ── */
+        .hud-top {
+            padding: 0 14px;
+            height: 48px;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .hud-tag {
+            font-size: 10px;
+        }
+
+        .hud-right {
+            gap: 10px;
+        }
+
+        .hs-val {
+            font-size: 13px;
+        }
+
+        .hs-label {
+            font-size: 8px;
+        }
+
+        .hud-divider {
+            height: 20px;
+        }
+
+        .hero-layout {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            padding-top: 56px !important;
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            padding-bottom: 100px !important;
+            gap: 16px;
+            overflow-y: auto;
+        }
+
+        .hero-left {
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .hero-middle {
+            display: none;
+        }
+
+        .hero-right {
+            display: none;
+        }
+
+        .hero-name {
+            font-size: clamp(2.6rem, 10vw, 4rem);
+            letter-spacing: -2px;
+        }
+
+        .tech-tags {
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            font-size: 11px;
+            padding: 6px 12px;
+        }
+
+        .hero-value {
+            font-size: 0.88rem;
+            margin-bottom: 18px;
+        }
+
+        .cta-row {
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-gamer {
+            padding: 11px 20px !important;
+            font-size: 11px !important;
+            min-width: unset;
+            clip-path: none !important;
+            border-radius: 8px !important;
+        }
+
+        .xp-section {
+            margin-top: 16px;
+            max-width: 100%;
+        }
+
+        #scene {
+            height: 160px;
+        }
+
+        #character {
+            bottom: 60px;
+        }
+
+        .corner {
+            display: none;
+        }
+
+        .hud-status {
+            padding: 4px 10px;
+        }
+
+        .live-txt {
+            font-size: 10px;
+        }
+
+        /* ── S2 ABOUT ── */
+        .bio-text {
+            font-size: 0.85rem;
+            text-align: left;
+        }
+
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .about-card {
+            padding: 0.9rem;
+        }
+
+        .about-card-text {
+            font-size: 12.5px;
+        }
+
+        /* ── S3 SKILLS ── */
+        .skills-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .skill-group {
+            padding: 0.8rem;
+        }
+
+        .skill-name {
+            font-size: 12px;
+        }
+
+        .skill-bar-wrap {
+            width: 55px;
+        }
+
+        /* ── S4 PROJECTS ── */
+        .projects-scroll {
+            height: 440px;
+            margin-top: 20px;
+        }
+
+        .project-card {
+            width: 88vw;
+            padding: 18px;
+        }
+
+        .pc-title {
+            font-size: 20px;
+        }
+
+        .pc-problem {
+            font-size: 13px;
+        }
+
+        #nextProject {
+            margin-top: 14px;
+            padding: 10px 24px;
+            font-size: 15px;
+        }
+
+        /* ── S7 EDUCATION ── */
+        .orbit-stage {
+            height: 360px;
+            max-width: 100%;
+        }
+
+        .orbit-track {
+            width: 260px;
+            height: 260px;
+            margin-top: -130px;
+            margin-left: -130px;
+        }
+
+        .orbit-node-card {
+            width: 190px;
+            font-size: 11px;
+        }
+
+        .orbit-card-title {
+            font-size: 12px;
+        }
+
+        .orbit-card-desc {
+            font-size: 11px;
+        }
+
+        /* ── S8 ACHIEVEMENTS ── */
+        .ach-grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .ach-card {
+            padding: 1rem;
+        }
+
+        .ach-title {
+            font-size: 13px;
+        }
+
+        .ach-sub {
+            font-size: 11px;
+        }
+
+        /* ── S9 TECH PROFICIENCY ── */
+        .main-section-title {
+            font-size: clamp(36px, 9vw, 64px);
+            letter-spacing: -2px;
+        }
+
+        .tech-cloud {
+            position: static !important;
+            height: auto !important;
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)) !important;
+            gap: 10px !important;
+            max-width: 100% !important;
+            margin-top: 16px !important;
+        }
+
+        .tech-item {
+            position: static !important;
+            width: 100% !important;
+            height: 82px !important;
+            transform: none !important;
+            border-radius: 12px !important;
+        }
+
+        .java-card {
+            width: 100% !important;
+            height: 110px !important;
+            border-radius: 16px !important;
+        }
+
+        .java-card .tech-icon {
+            font-size: 2.2rem;
+        }
+
+        .java-card .tech-name {
+            font-size: 16px;
+        }
+
+        .tech-icon {
+            font-size: 1.3rem;
+        }
+
+        .tech-name {
+            font-size: 10px;
+        }
+
+        /* ── S11 RESUME ── */
+        .ink-stage {
+            height: 420px;
+        }
+
+        .ink-hint {
+            font-size: 10px;
+        }
+
+        .ink-reset-btn {
+            font-size: 11px;
+            padding: 8px 16px;
+        }
+
+        /* ── S12 CONTACT ── */
+        .c-inner {
+            padding: 1rem !important;
+            gap: 0 !important;
+            justify-content: flex-start !important;
+            padding-top: 20px !important;
+            overflow-y: auto;
+        }
+
+        .c-title {
+            font-size: clamp(1.6rem, 7vw, 2.4rem);
+            letter-spacing: -1px;
+        }
+
+        .c-subtitle {
+            font-size: 11px;
+            margin-bottom: 1rem;
+        }
+
+        .c-main {
+            grid-template-columns: 1fr !important;
+            gap: 14px;
+            width: 100%;
+        }
+
+        .c-card {
+            padding: 0.9rem 1rem;
+        }
+
+        .c-card-value {
+            font-size: 12px;
+        }
+
+        .c-card-icon-wrap {
+            width: 36px;
+            height: 36px;
+        }
+
+        .c-form-wrap {
+            width: 100%;
+        }
+
+        .c-form-body {
+            padding: 14px;
+            gap: 10px;
+        }
+
+        .c-input {
+            font-size: 12px;
+            padding: 9px 12px;
+        }
+
+        .c-textarea {
+            rows: 3;
+        }
+
+        .c-send-btn {
+            padding: 12px;
+            font-size: 13px;
+        }
+
+        .c-avail {
+            padding: 10px 14px;
+        }
+
+        .c-avail-title {
+            font-size: 12px;
+        }
+
+        .c-avail-sub {
+            font-size: 10px;
+        }
+
+        .c-corner {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* ── S13 FOOTER ── */
+        .footer-name {
+            font-size: clamp(1.2rem, 7vw, 2rem);
+        }
+
+        .footer-links {
+            gap: 14px;
+        }
+
+        .footer-link {
+            font-size: 12px;
+        }
+
+        .footer-tagline {
+            font-size: 11px;
+            margin-bottom: 1.2rem;
+        }
+    }
+
+
+    /* ================================================================
+   MOBILE  < 480px
+   ================================================================ */
+    @media (max-width: 480px) {
+
+        .section-inner {
+            padding: 0.8rem;
+            padding-top: 60px;
+        }
+
+        /* HUD */
+        .hud-top {
+            height: 44px;
+            padding: 0 10px;
+        }
+
+        .hud-tag {
+            font-size: 9px;
+            letter-spacing: 0.5px;
+        }
+
+        .hud-right {
+            gap: 8px;
+        }
+
+        .hs-val {
+            font-size: 11px;
+        }
+
+        .hs-label {
+            font-size: 7px;
+            letter-spacing: 1px;
+        }
+
+        .hud-divider {
+            height: 16px;
+        }
+
+        .live-txt {
+            display: none;
+        }
+
+        /* HERO */
+        .hero-layout {
+            padding-top: 50px !important;
+            padding-left: 12px !important;
+            padding-right: 12px !important;
+            padding-bottom: 120px !important;
+            gap: 12px;
+        }
+
+        .hero-pre {
+            font-size: 10px;
+        }
+
+        .pre-bracket {
+            font-size: 13px;
+        }
+
+        .hero-name {
+            font-size: clamp(2rem, 12vw, 3rem);
+            letter-spacing: -1.5px;
+        }
+
+        .hero-value {
+            font-size: 0.82rem;
+            line-height: 1.7;
+        }
+
+        .cta-row {
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-gamer {
+            width: 100%;
+            justify-content: center;
+        }
+
+        .xp-label {
+            font-size: 9px;
+        }
+
+        .xp-bar-wrap {
+            height: 4px;
+        }
+
+        #scene {
+            height: 130px;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .bio-text {
+            font-size: 0.82rem;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .skill-bar-wrap {
+            width: 50px;
+        }
+
+        /* PROJECTS */
+        .projects-scroll {
+            height: 400px;
+            margin-top: 12px;
+        }
+
+        .project-card {
+            width: 92vw;
+            padding: 14px;
+        }
+
+        .pc-title {
+            font-size: 17px;
+        }
+
+        .pc-problem {
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .ptag {
+            font-size: 10px;
+            padding: 4px 8px;
+        }
+
+        #nextProject {
+            padding: 8px 18px;
+            font-size: 13px;
+        }
+
+        /* EDUCATION ORBIT */
+        .orbit-stage {
+            height: 300px;
+        }
+
+        .orbit-track {
+            width: 210px;
+            height: 210px;
+            margin-top: -105px;
+            margin-left: -105px;
+        }
+
+        .orbit-node-card {
+            width: 165px;
+            top: 40px;
+            padding: 10px;
+        }
+
+        .orbit-card-title {
+            font-size: 11px;
+        }
+
+        .orbit-card-desc {
+            font-size: 10px;
+        }
+
+        .orbit-center {
+            width: 44px;
+            height: 44px;
+            font-size: 18px;
+        }
+
+        /* ACHIEVEMENTS */
+        .ach-grid {
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .ach-card {
+            padding: 0.9rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* TECH */
+        .main-section-title {
+            font-size: clamp(28px, 10vw, 46px);
+        }
+
+        .tech-cloud {
+            gap: 8px !important;
+        }
+
+        .tech-item {
+            height: 72px !important;
+        }
+
+        .java-card {
+            height: 90px !important;
+        }
+
+        .java-card .tech-icon {
+            font-size: 1.8rem;
+        }
+
+        .java-card .tech-name {
+            font-size: 14px;
+        }
+
+        .tech-rank {
+            font-size: 9px;
+            padding: 3px 8px;
+        }
+
+        /* RESUME */
+        .ink-stage {
+            height: 360px;
+        }
+
+        /* CONTACT */
+        .c-title {
+            font-size: clamp(1.4rem, 9vw, 2rem);
+        }
+
+        .c-main {
+            gap: 10px;
+        }
+
+        .c-card-value {
+            font-size: 11px;
+        }
+
+        .c-form-body {
+            padding: 10px;
+            gap: 8px;
+        }
+
+        .c-input {
+            font-size: 11px;
+            padding: 8px 10px;
+        }
+
+        .c-label {
+            font-size: 8px;
+        }
+
+        .c-send-btn {
+            font-size: 12px;
+            padding: 11px;
+        }
+
+        .c-corner {
+            display: none;
+        }
+
+        .c-orb1,
+        .c-orb2,
+        .c-orb3 {
+            display: none;
+        }
+
+        /* FOOTER */
+        .footer-links {
+            gap: 10px;
+        }
+
+        .footer-link {
+            font-size: 11px;
+        }
+
+        .footer-copy {
+            font-size: 10px;
+        }
+
+        /* COUNTER + ARROWS */
+        .counter {
+            font-size: 9px;
+            bottom: 12px;
+            left: 10px;
+        }
+
+        .nav-arrows {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .arrow-btn {
+            width: 32px;
+            height: 32px;
+            font-size: 0.85rem;
+        }
+    }

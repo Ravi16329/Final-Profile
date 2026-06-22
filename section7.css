@@ -242,3 +242,187 @@
         width: 190px;
     }
 }
+
+/* ================================================================
+   SECTION 7 — RESPONSIVE ONLY
+   Paste at the bottom of section7.css
+   Zero changes to existing rules — only @media additions
+   ================================================================ */
+
+/* ── TABLET  ≤ 768px ── */
+@media (max-width: 768px) {
+
+    #s7 .section-inner {
+        padding-top: 60px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+
+    .orbit-stage {
+        height: 380px;
+        min-height: 380px;
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+
+    .orbit-track {
+        width: 290px;
+        height: 290px;
+        margin-top: -145px;
+        margin-left: -145px;
+    }
+
+    .orbit-center {
+        width: 48px;
+        height: 48px;
+        margin-top: -24px;
+        margin-left: -24px;
+        font-size: 18px;
+    }
+
+    .orbit-center-ring.r1 {
+        width: 64px;
+        height: 64px;
+        margin-top: -32px;
+        margin-left: -32px;
+    }
+
+    .orbit-center-ring.r2 {
+        width: 82px;
+        height: 82px;
+        margin-top: -41px;
+        margin-left: -41px;
+    }
+
+    .orbit-node-dot {
+        width: 32px;
+        height: 32px;
+        top: -16px;
+        left: -16px;
+        font-size: 13px;
+    }
+
+    .orbit-node-label {
+        font-size: 10px;
+        top: 20px;
+    }
+
+    .orbit-node-card {
+        width: 200px;
+        padding: 12px;
+        top: 42px;
+    }
+
+    .orbit-card-title {
+        font-size: 13px;
+    }
+
+    .orbit-card-desc {
+        font-size: 11px;
+    }
+}
+
+
+/* ── MOBILE  ≤ 480px ── */
+@media (max-width: 480px) {
+
+    #s7 .section-inner {
+        padding-top: 54px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 100px;
+    }
+
+    .orbit-stage {
+        height: 320px;
+        min-height: 320px;
+    }
+
+    .orbit-track {
+        width: 230px;
+        height: 230px;
+        margin-top: -115px;
+        margin-left: -115px;
+    }
+
+    .orbit-center {
+        width: 42px;
+        height: 42px;
+        margin-top: -21px;
+        margin-left: -21px;
+        font-size: 16px;
+    }
+
+    .orbit-center-ring.r1 {
+        width: 56px;
+        height: 56px;
+        margin-top: -28px;
+        margin-left: -28px;
+    }
+
+    .orbit-center-ring.r2 {
+        width: 70px;
+        height: 70px;
+        margin-top: -35px;
+        margin-left: -35px;
+    }
+
+    .orbit-node-dot {
+        width: 28px;
+        height: 28px;
+        top: -14px;
+        left: -14px;
+        font-size: 12px;
+        border-width: 1.5px;
+    }
+
+    .orbit-node-label {
+        font-size: 9px;
+        top: 17px;
+    }
+
+    /* on very small screens, show card above the node instead of below
+       to avoid going off-screen at the bottom */
+    .orbit-node-card {
+        width: 172px;
+        padding: 10px;
+        top: auto;
+        bottom: 42px;
+        font-size: 10px;
+    }
+
+    .orbit-card-title {
+        font-size: 12px;
+        margin-bottom: 4px;
+    }
+
+    .orbit-card-desc {
+        font-size: 10px;
+        line-height: 1.5;
+        margin-bottom: 8px;
+    }
+
+    .orbit-card-score {
+        font-size: 10px;
+    }
+
+    .orbit-card-badge {
+        font-size: 8px;
+    }
+
+    .orbit-card-date {
+        font-size: 9px;
+    }
+
+    .orbit-card-bar {
+        height: 3px;
+    }
+
+    /* university card at bottom */
+    #s7 [style*="max-width:640px"] {
+        margin-top: 12px;
+    }
+}

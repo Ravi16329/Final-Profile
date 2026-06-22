@@ -185,3 +185,186 @@
         translateY(-4px);
 
 }
+
+
+/* ================================================================
+   SECTION 4 — RESPONSIVE ONLY
+   Paste at the bottom of section4.css
+   Zero changes to existing rules — only @media additions
+   ================================================================ */
+
+/* ── TABLET  ≤ 768px ── */
+@media (max-width: 768px) {
+
+    #s4 .section-inner {
+        padding-top: 60px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+    }
+
+    .projects-scroll {
+        height: 460px;
+        margin-top: 16px;
+    }
+
+    .project-card {
+        width: 86vw;
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    /* re-anchor stack positions for narrower width */
+    .project-card[data-pos="0"] {
+        transform: translate(-50%, -62%) rotate(-5deg);
+    }
+
+    .project-card[data-pos="1"] {
+        transform: translate(-50%, -48%) rotate(-2deg) translateY(18px);
+    }
+
+    .project-card[data-pos="2"] {
+        transform: translate(-50%, -34%) rotate(2deg) translateY(36px);
+    }
+
+    .project-card[data-pos="0"]:hover {
+        transform: translate(-50%, -72%) rotate(-5deg) scale(1.03);
+    }
+
+    .project-card[data-pos="1"]:hover {
+        transform: translate(-50%, -58%) rotate(-2deg) translateY(18px) scale(1.02);
+    }
+
+    .project-card[data-pos="2"]:hover {
+        transform: translate(-50%, -44%) rotate(2deg) translateY(36px) scale(1.02);
+    }
+
+    .pc-title {
+        font-size: 20px;
+    }
+
+    .pc-problem {
+        font-size: 13px;
+        line-height: 1.65;
+    }
+
+    .pc-icon {
+        font-size: 1.5rem;
+    }
+
+    .ptag {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    #nextProject {
+        margin-top: 16px;
+        padding: 11px 26px;
+        font-size: 15px;
+        border-radius: 14px;
+    }
+
+    #stackCounter {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+}
+
+
+/* ── MOBILE  ≤ 480px ── */
+@media (max-width: 480px) {
+
+    #s4 .section-inner {
+        padding-top: 54px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 100px;
+    }
+
+    .projects-scroll {
+        height: 400px;
+        margin-top: 10px;
+    }
+
+    .project-card {
+        width: 92vw;
+        padding: 16px;
+        border-radius: 16px;
+    }
+
+    /* tighter stack offsets on small screens */
+    .project-card[data-pos="0"] {
+        transform: translate(-50%, -60%) rotate(-4deg);
+    }
+
+    .project-card[data-pos="1"] {
+        transform: translate(-50%, -48%) rotate(-1.5deg) translateY(14px);
+    }
+
+    .project-card[data-pos="2"] {
+        transform: translate(-50%, -36%) rotate(1.5deg) translateY(28px);
+    }
+
+    .project-card[data-pos="0"]:hover {
+        transform: translate(-50%, -68%) rotate(-4deg) scale(1.02);
+    }
+
+    .project-card[data-pos="1"]:hover {
+        transform: translate(-50%, -56%) rotate(-1.5deg) translateY(14px) scale(1.02);
+    }
+
+    .project-card[data-pos="2"]:hover {
+        transform: translate(-50%, -44%) rotate(1.5deg) translateY(28px) scale(1.02);
+    }
+
+    .pc-header {
+        margin-bottom: 12px;
+    }
+
+    .pc-icon {
+        font-size: 1.3rem;
+    }
+
+    .pc-title {
+        font-size: 17px;
+        margin-bottom: 7px;
+    }
+
+    .pc-problem {
+        font-size: 12px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+    }
+
+    .pc-tags {
+        gap: 6px;
+    }
+
+    .ptag {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+
+    .pc-link {
+        font-size: 10px;
+        padding: 3px 9px;
+    }
+
+    .pc-links {
+        gap: 6px;
+    }
+
+    #nextProject {
+        margin-top: 12px;
+        padding: 10px 22px;
+        font-size: 13px;
+        border-radius: 12px;
+        width: 100%;
+    }
+
+    #stackCounter {
+        font-size: 12px;
+        margin-top: 6px;
+    }
+}

@@ -327,3 +327,159 @@
         transform: rotate(360deg);
     }
 }
+
+
+/* ================================================================
+   SECTION 9 — RESPONSIVE ONLY
+   Paste at the bottom of section9.css
+   Zero changes to existing rules — only @media additions
+   ================================================================ */
+
+/* ── TABLET  ≤ 768px ── */
+@media (max-width: 768px) {
+
+    #s9 .section-inner {
+        padding-top: 60px;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-bottom: 80px;
+        justify-content: flex-start;
+        overflow-y: auto;
+    }
+
+    .main-section-title {
+        font-size: clamp(38px, 8vw, 64px);
+        letter-spacing: -2px;
+    }
+
+    /* switch from absolute scatter → responsive CSS grid */
+    .tech-cloud {
+        position: static !important;
+        height: auto !important;
+        display: grid !important;
+        grid-template-columns: repeat(auto-fill, minmax(90px, 1fr)) !important;
+        gap: 12px !important;
+        max-width: 100% !important;
+        margin-top: 20px !important;
+    }
+
+    /* all items become static grid cells */
+    .tech-item {
+        position: static !important;
+        width: 100% !important;
+        height: 90px !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+        border-radius: 14px !important;
+    }
+
+    .tech-item:hover {
+        transform: scale(1.05) !important;
+    }
+
+    .tech-icon {
+        font-size: 1.4rem;
+    }
+
+    .tech-name {
+        font-size: 10.5px;
+    }
+
+    .tech-pie-label {
+        font-size: 13px;
+    }
+
+    /* java-card normalised on tablet */
+    .java-card {
+        width: 100% !important;
+        height: 120px !important;
+        border-radius: 16px !important;
+    }
+
+    .java-card .tech-icon {
+        font-size: 2.4rem;
+    }
+
+    .java-card .tech-name {
+        font-size: 17px;
+        letter-spacing: 1px;
+    }
+
+    .tech-rank {
+        font-size: 10px;
+        padding: 4px 10px;
+        margin-top: 5px;
+    }
+}
+
+
+/* ── MOBILE  ≤ 480px ── */
+@media (max-width: 480px) {
+
+    #s9 .section-inner {
+        padding-top: 54px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 100px;
+    }
+
+    .main-section-title {
+        font-size: clamp(28px, 10vw, 42px);
+        letter-spacing: -1.5px;
+    }
+
+    /* tighter 3-column grid on phones */
+    .tech-cloud {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+        margin-top: 14px !important;
+    }
+
+    .tech-item {
+        height: 78px !important;
+        border-radius: 12px !important;
+        gap: 5px !important;
+    }
+
+    .tech-icon {
+        font-size: 1.2rem;
+    }
+
+    .tech-name {
+        font-size: 9.5px;
+    }
+
+    .tech-pie-label {
+        font-size: 12px;
+    }
+
+    /* java-card on mobile — same grid cell as others but taller */
+    .java-card {
+        grid-column: span 1 !important;
+        height: 100px !important;
+        border-radius: 14px !important;
+    }
+
+    .java-card .tech-icon {
+        font-size: 2rem;
+    }
+
+    .java-card .tech-name {
+        font-size: 14px;
+        letter-spacing: 0.5px;
+    }
+
+    .tech-rank {
+        font-size: 9px;
+        padding: 3px 8px;
+        margin-top: 4px;
+    }
+
+    /* title underline line adjust */
+    .main-section-title::after {
+        width: 100px;
+        bottom: -10px;
+    }
+}
