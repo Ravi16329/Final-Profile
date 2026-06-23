@@ -68,3 +68,74 @@
     pointer-events: none;
     letter-spacing: 0.5px;
 }
+
+#footerCanvas {
+    filter: contrast(110%);
+    transform-style: preserve-3d;
+}
+
+.f-nav {
+    backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, .04);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    padding: 14px 26px;
+
+    border-radius: 20px;
+
+    transition: .5s;
+
+    opacity: .8;
+}
+
+.f-nav:hover {
+
+    transform:
+        translateY(-8px) scale(1.06);
+
+    box-shadow:
+        0 0 40px rgba(0, 212, 255, .25);
+}
+
+.f-name {
+
+    font-size:
+        clamp(40px,
+            7vw,
+            90px);
+
+    font-weight: 900;
+
+    background:
+        linear-gradient(90deg,
+            #fff,
+            #6C63FF,
+            #00D4FF);
+
+    -webkit-background-clip: text;
+
+    color: transparent;
+
+    animation:
+        reveal 2s;
+}
+
+@keyframes reveal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(80px);
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}

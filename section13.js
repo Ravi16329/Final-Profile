@@ -515,3 +515,54 @@
 
     window.addEventListener('resize', () => { if (running) { resize(); initDeliveries(); } });
 })();
+
+
+const orb = {
+
+    x: W * .82,
+
+    y: H * .45,
+
+    r: 120
+
+};
+
+function drawOrb() {
+
+    const g =
+        ctx.createRadialGradient(
+            orb.x,
+            orb.y,
+            10,
+            orb.x,
+            orb.y,
+            orb.r
+        );
+
+    g.addColorStop(
+        0,
+        '#00D4FF'
+    );
+
+    g.addColorStop(
+        1,
+        'transparent'
+    );
+
+    ctx.fillStyle = g;
+
+    ctx.beginPath();
+
+    ctx.arc(
+        orb.x,
+        orb.y,
+        orb.r,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+}
+
+drawOrb()
