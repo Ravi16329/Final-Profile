@@ -386,62 +386,6 @@ body {
 /* s12 has seperate file */
 
 /* === S13 FOOTER === */
-#s13 {
-    background:
-        radial-gradient(circle, #9333EA, var(--bg13) 60%);
-}
-
-.footer-inner {
-    text-align: center
-}
-
-.footer-name {
-    font-size: clamp(1.5rem, 4vw, 3rem);
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: -1px;
-    margin-bottom: 0.5rem
-}
-
-.footer-tagline {
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 2rem;
-    font-family: 'JetBrains Mono', monospace
-}
-
-.footer-links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 2.5rem
-}
-
-.footer-link {
-    font-size: 13px;
-    color: var(--muted);
-    text-decoration: none;
-    transition: color .2s;
-    cursor: pointer
-}
-
-.footer-link:hover {
-    color: var(--accent)
-}
-
-.footer-divider {
-    width: 60px;
-    height: 1px;
-    background: var(--border);
-    margin: 0 auto 1.5rem
-}
-
-.footer-copy {
-    font-size: 11px;
-    color: rgba(232, 232, 240, 0.2);
-    font-family: 'JetBrains Mono', monospace
-}
 
 /* ===== NAV ===== */
 .nav-dots {

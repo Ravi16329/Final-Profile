@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="section7.css">
     <link rel="stylesheet" href="section11.css">
     <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="section13.css">
 
 
 </head>
@@ -105,7 +106,7 @@
                         <span class="btn-icon">▶</span>
                         Download Resume
                     </button>
-                    <button class="btn-ghost btn-gamer" onclick="goToSection(11)">
+                    <button class="btn-ghost btn-gamer" onclick="goToSection(8)">
                         <span class="btn-icon">✉</span> Contact Me
                     </button>
                 </div>
@@ -1079,23 +1080,23 @@
     </section>
 
     <!-- ===== SECTION 13: FOOTER ===== -->
+    <!-- ================================================================
+     SECTION 13 — DIAGONAL ZIGZAG RAMP + CAR PUSHES WORDS
+     Full replacement for your #s13 section
+     ================================================================ -->
+    <!-- ================================================================
+     SECTION 13 — FINAL: SPORTS BIKE on ramp + CAR pulls words
+     ================================================================ -->
     <section class="section" id="s13">
-        <div class="bg-grid"></div>
-        <div class="section-inner">
-            <div class="footer-inner">
-                <div class="footer-name"> Raveendra K </div>
-                <div class="footer-tagline">backend developer · open to work</div>
-                <div class="footer-links">
-                    <span class="footer-link" onclick="goToSection(0)">Home</span>
-                    <span class="footer-link" onclick="goToSection(1)">About</span>
-                    <span class="footer-link" onclick="goToSection(3)">Projects</span>
-                    <span class="footer-link" onclick="goToSection(5)">Experience</span>
-                    <span class="footer-link" onclick="goToSection(9)">Profiles</span>
-                    <span class="footer-link" onclick="goToSection(11)">Contact</span>
-                </div>
-                <div class="footer-divider"></div>
-                <div class="footer-copy">© 2025 Your Name · Built with HTML, CSS & GSAP</div>
-            </div>
+        <canvas id="footerCanvas"></canvas>
+        <div class="footer-overlay" id="footerOverlay">
+            <div class="f-word f-nav" id="fw-home" onclick="goToSection(0)">Home</div>
+            <div class="f-word f-nav" id="fw-about" onclick="goToSection(1)">About</div>
+            <div class="f-word f-nav" id="fw-proj" onclick="goToSection(3)">Projects</div>
+            <div class="f-word f-nav" id="fw-contact" onclick="goToSection(8)">Contact</div>
+            <div class="f-word f-name" id="fw-name">Raveendra K</div>
+            <div class="f-word f-tag" id="fw-tag">Backend Developer · Open To Work</div>
+            <div class="f-copy-line" id="fw-copy">© 2025 Raveendra Kuchu · HTML, CSS &amp; GSAP</div>
         </div>
     </section>
 
@@ -1126,6 +1127,7 @@
     <script src="section4.js"></script>
     <script src="section7.js"></script>
     <script src="section11.js"></script>
+    <script src="section13.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 

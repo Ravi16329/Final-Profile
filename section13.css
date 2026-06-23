@@ -1,0 +1,70 @@
+#s13 {
+    background: #06060E;
+    overflow: hidden;
+    position: relative;
+}
+
+#footerCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.footer-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.f-word {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: #fff;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    text-shadow: 0 0 20px rgba(108, 99, 255, 0.9);
+    letter-spacing: 1px;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+.f-word:hover {
+    color: #00D4FF;
+    pointer-events: auto;
+    text-shadow: 0 0 30px #00D4FF;
+}
+
+.f-nav {
+    font-size: clamp(14px, 1.8vw, 22px);
+    cursor: pointer;
+}
+
+.f-name {
+    font-size: clamp(28px, 5vw, 72px);
+    letter-spacing: -2px;
+    text-shadow: 0 0 60px rgba(108, 99, 255, 1);
+    cursor: default;
+}
+
+.f-tag {
+    font-size: clamp(9px, 1vw, 13px);
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 400;
+    letter-spacing: 3px;
+    cursor: default;
+}
+
+.f-copy-line {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.18);
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    letter-spacing: 0.5px;
+}
