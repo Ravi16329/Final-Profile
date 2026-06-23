@@ -1,0 +1,416 @@
+<html>
+
+<head>
+
+    <style>
+        #s13 {
+            background: #05040F;
+            overflow: hidden;
+            position: relative;
+            height: 100vh;
+        }
+
+        #footerCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .footer-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .f-word {
+            position: absolute;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: #fff;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            text-shadow: 0 0 25px rgba(100, 200, 255, 0.9);
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .f-word:hover {
+            color: #64c8ff;
+            text-shadow: 0 0 40px #64c8ff;
+            pointer-events: auto;
+        }
+
+        .f-nav {
+            font-size: clamp(15px, 1.9vw, 24px);
+            cursor: pointer;
+        }
+
+        .f-name {
+            font-size: clamp(32px, 6vw, 82px);
+            letter-spacing: -3px;
+            font-weight: 800;
+            text-shadow: 0 0 80px rgba(100, 200, 255, 0.95);
+            cursor: default;
+        }
+
+        .f-tag {
+            font-size: clamp(10px, 1.1vw, 15px);
+            color: rgba(180, 220, 255, 0.6);
+            font-weight: 400;
+            letter-spacing: 4px;
+            cursor: default;
+        }
+
+        .f-copy-line {
+            position: absolute;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.12);
+            opacity: 0;
+            white-space: nowrap;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ================================================================
+     SECTION 13 — CYBER RAMP FOOTER
+     ================================================================ -->
+    <section class="section" id="s13">
+        <canvas id="footerCanvas"></canvas>
+        <div class="footer-overlay" id="footerOverlay">
+            <div class="f-word f-nav" id="fw-home" onclick="goToSection(0)">HOME</div>
+            <div class="f-word f-nav" id="fw-about" onclick="goToSection(1)">ABOUT</div>
+            <div class="f-word f-nav" id="fw-proj" onclick="goToSection(3)">PROJECTS</div>
+            <div class="f-word f-nav" id="fw-contact" onclick="goToSection(8)">CONTACT</div>
+
+            <div class="f-word f-name" id="fw-name">RAVEENDRA K</div>
+            <div class="f-word f-tag" id="fw-tag">BACKEND DEVELOPER • OPEN TO WORK</div>
+            <div class="f-copy-line" id="fw-copy">© 2026 RAVEENDRA KUCHU • BUILT WITH PASSION</div>
+        </div>
+    </section>
+
+
+    <script>
+        (function () {
+            const section = document.getElementById('s13');
+            const canvas = document.getElementById('footerCanvas');
+            if (!canvas || !section) return;
+            const ctx = canvas.getContext('2d', { alpha: true });
+            let W, H;
+
+            function resize() {
+                W = canvas.width = section.offsetWidth;
+                H = canvas.height = section.offsetHeight;
+                buildRamp();
+            }
+
+            /* ==================== RAMP (Futuristic Highway) ==================== */
+            let rampPath = [], rampLeft = [], rampRight = [];
+
+            function buildRamp() {
+                rampPath = []; rampLeft = []; rampRight = [];
+                const sx = W * 0.05, sy = H * 0.88;
+                const ex = W * 0.95, ey = H * 0.08;
+                const pts = [];
+
+                for (let i = 0; i <= 10; i++) {
+                    const t = i / 10;
+                    const x = sx + (ex - sx) * t;
+                    const y = sy + (ey - sy) * t;
+                    const sway = Math.sin(t * Math.PI * 3) * W * 0.08;
+                    pts.push({ x: x + sway, y: y });
+                }
+
+                for (let i = 0; i < pts.length - 1; i++) {
+                    const p0 = pts[Math.max(0, i - 1)];
+                    const p1 = pts[i];
+                    const p2 = pts[i + 1];
+                    const p3 = pts[Math.min(pts.length - 1, i + 2)];
+                    for (let t = 0; t < 1; t += 0.012) {
+                        rampPath.push(catmullRom(p0, p1, p2, p3, t));
+                    }
+                }
+                buildEdges();
+            }
+
+            function catmullRom(p0, p1, p2, p3, t) {
+                const t2 = t * t, t3 = t2 * t;
+                return {
+                    x: 0.5 * ((2 * p1.x) + (-p0.x + p2.x) * t + (2 * p0.x - 5 * p1.x + 4 * p2.x - p3.x) * t2 + (-p0.x + 3 * p1.x - 3 * p2.x + p3.x) * t3),
+                    y: 0.5 * ((2 * p1.y) + (-p0.y + p2.y) * t + (2 * p0.y - 5 * p1.y + 4 * p2.y - p3.y) * t2 + (-p0.y + 3 * p1.y - 3 * p2.y + p3.y) * t3)
+                };
+            }
+
+            function buildEdges() {
+                const n = rampPath.length;
+                for (let i = 0; i < n; i++) {
+                    const prev = rampPath[Math.max(0, i - 1)];
+                    const next = rampPath[Math.min(n - 1, i + 1)];
+                    const dx = next.x - prev.x, dy = next.y - prev.y;
+                    const len = Math.hypot(dx, dy) || 1;
+                    const nx = -dy / len, ny = dx / len;
+                    const width = W * 0.072 * (0.6 + 0.4 * (i / n));
+
+                    rampLeft.push({ x: rampPath[i].x + nx * width, y: rampPath[i].y + ny * width });
+                    rampRight.push({ x: rampPath[i].x - nx * width, y: rampPath[i].y - ny * width });
+                }
+            }
+
+            function getPathPoint(t) {
+                const idx = Math.floor(t * (rampPath.length - 1));
+                const f = (t * (rampPath.length - 1)) - idx;
+                const a = rampPath[idx], b = rampPath[Math.min(idx + 1, rampPath.length - 1)];
+                return { x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f };
+            }
+
+            function getAngle(t) {
+                const a = getPathPoint(Math.max(0, t - 0.01));
+                const b = getPathPoint(Math.min(1, t + 0.01));
+                return Math.atan2(b.y - a.y, b.x - a.x);
+            }
+
+            /* ==================== BACKGROUND & ATMOSPHERE ==================== */
+            function drawBg() {
+                const grad = ctx.createLinearGradient(0, 0, 0, H);
+                grad.addColorStop(0, '#0a061f');
+                grad.addColorStop(1, '#02010a');
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, 0, W, H);
+
+                // Subtle grid + scanlines
+                ctx.strokeStyle = 'rgba(100, 180, 255, 0.03)';
+                ctx.lineWidth = 1;
+                for (let i = 0; i < H; i += 28) {
+                    ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(W, i); ctx.stroke();
+                }
+            }
+
+            /* ==================== DRAW RAMP ==================== */
+            function drawRamp() {
+                const n = rampPath.length;
+                ctx.save();
+
+                // Road
+                ctx.beginPath();
+                ctx.moveTo(rampLeft[0].x, rampLeft[0].y);
+                for (let i = 1; i < n; i++) ctx.lineTo(rampLeft[i].x, rampLeft[i].y);
+                for (let i = n - 1; i >= 0; i--) ctx.lineTo(rampRight[i].x, rampRight[i].y);
+                ctx.closePath();
+
+                const roadGrad = ctx.createLinearGradient(W * 0.1, H * 0.9, W * 0.9, H * 0.1);
+                roadGrad.addColorStop(0, '#1a1628');
+                roadGrad.addColorStop(0.5, '#2a233f');
+                roadGrad.addColorStop(1, '#1a1628');
+                ctx.fillStyle = roadGrad;
+                ctx.fill();
+
+                // Neon edges
+                ctx.shadowBlur = 25;
+                ctx.shadowColor = '#64c8ff';
+                ctx.strokeStyle = '#64c8ff';
+                ctx.lineWidth = 4;
+                ctx.beginPath();
+                for (let i = 0; i < n; i++) ctx.lineTo(rampLeft[i].x, rampLeft[i].y);
+                ctx.stroke();
+
+                ctx.shadowColor = '#ff4da6';
+                ctx.strokeStyle = '#ff4da6';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                for (let i = 0; i < n; i++) ctx.lineTo(rampRight[i].x, rampRight[i].y);
+                ctx.stroke();
+
+                ctx.restore();
+            }
+
+            /* ==================== IMPROVED BIKE ==================== */
+            function drawBike(x, y, angle, scale) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(angle);
+                ctx.scale(scale, scale);
+
+                // Shadow
+                ctx.fillStyle = 'rgba(0,0,0,0.6)';
+                ctx.beginPath(); ctx.ellipse(8, 32, 38, 12, 0, 0, Math.PI * 2); ctx.fill();
+
+                // Main body
+                ctx.fillStyle = '#0f0f1a';
+                ctx.strokeStyle = '#64c8ff';
+                ctx.lineWidth = 3;
+                ctx.beginPath();
+                ctx.moveTo(-48, 8); ctx.lineTo(28, -18); ctx.lineTo(52, 5); ctx.lineTo(38, 28); ctx.lineTo(-22, 28); ctx.closePath();
+                ctx.fill(); ctx.stroke();
+
+                // Neon accents
+                ctx.fillStyle = '#ff4da6';
+                ctx.fillRect(12, -22, 32, 12);
+
+                // Wheels
+                [[-32, 22], [38, 22]].forEach(([wx, wy]) => {
+                    ctx.fillStyle = '#111';
+                    ctx.beginPath(); ctx.arc(wx, wy, 14, 0, Math.PI * 2); ctx.fill();
+                    ctx.strokeStyle = '#64c8ff';
+                    ctx.lineWidth = 4;
+                    ctx.beginPath(); ctx.arc(wx, wy, 14, 0, Math.PI * 2); ctx.stroke();
+                });
+
+                ctx.restore();
+            }
+
+            /* ==================== DELIVERY SYSTEM (Professional) ==================== */
+            const navWords = [
+                { id: 'fw-home', fx: 0.09, fy: 0.78 },
+                { id: 'fw-about', fx: 0.34, fy: 0.61 },
+                { id: 'fw-proj', fx: 0.59, fy: 0.43 },
+                { id: 'fw-contact', fx: 0.78, fy: 0.27 }
+            ];
+
+            let deliveries = [];
+            let animStartTime = null;
+
+            function initDeliveries() {
+                deliveries = navWords.map((w, i) => ({
+                    ...w,
+                    el: document.getElementById(w.id),
+                    phase: 'waiting',
+                    carX: -180,
+                    carY: 0,
+                    startDelay: 600 + i * 650,
+                    startTime: 0
+                }));
+
+                // Reset top elements
+                ['fw-name', 'fw-tag', 'fw-copy'].forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el) el.style.opacity = '0';
+                });
+            }
+
+            function updateDeliveries(now) {
+                if (!animStartTime) animStartTime = now;
+                const elapsed = now - animStartTime;
+
+                deliveries.forEach(d => {
+                    const tx = W * d.fx;
+                    const ty = H * d.fy;
+
+                    if (d.phase === 'waiting' && elapsed > d.startDelay) {
+                        d.phase = 'driving';
+                        d.startTime = now;
+                    }
+
+                    if (d.phase === 'driving') {
+                        const prog = Math.min((now - d.startTime) / 1100, 1);
+                        const ease = 1 - Math.pow(1 - prog, 3);
+                        d.carX = -180 + (tx + 80) * ease;
+                        drawCar(d.carX, ty, 0, 0.75, true);
+
+                        if (prog >= 1) {
+                            d.phase = 'delivered';
+                            d.el.style.transition = 'all 0.6s cubic-bezier(0.23,1,0.32,1)';
+                            d.el.style.left = tx + 'px';
+                            d.el.style.top = (ty - 18) + 'px';
+                            d.el.style.opacity = '1';
+                            d.el.style.transform = 'scale(1)';
+                            d.el.style.pointerEvents = 'auto';
+                        }
+                    }
+                });
+
+                // Name & Tag drop
+                if (elapsed > 3800) {
+                    const name = document.getElementById('fw-name');
+                    const tag = document.getElementById('fw-tag');
+                    const prog = Math.min((elapsed - 3800) / 900, 1);
+                    const ease = 1 - Math.pow(1 - prog, 3);
+
+                    if (name) {
+                        name.style.opacity = ease;
+                        name.style.left = '6%';
+                        name.style.top = (H * 0.12) + 'px';
+                    }
+                    if (tag) {
+                        tag.style.opacity = ease * 0.9;
+                        tag.style.left = '6%';
+                        tag.style.top = (H * 0.23) + 'px';
+                    }
+                }
+
+                // Copyright
+                if (elapsed > 5200) {
+                    const cp = document.getElementById('fw-copy');
+                    if (cp) cp.style.opacity = Math.min((elapsed - 5200) / 800, 1) * 0.45;
+                }
+            }
+
+            function drawCar(x, y, angle, scale, lightsOn) {
+                ctx.save();
+                ctx.translate(x, y); ctx.rotate(angle); ctx.scale(scale, scale);
+
+                // Headlights glow
+                if (lightsOn) {
+                    const glow = ctx.createRadialGradient(45, -4, 5, 90, -4, 90);
+                    glow.addColorStop(0, 'rgba(255,240,180,0.7)');
+                    glow.addColorStop(1, 'rgba(255,200,80,0)');
+                    ctx.fillStyle = glow;
+                    ctx.beginPath(); ctx.ellipse(55, -4, 75, 22, 0, 0, Math.PI * 2); ctx.fill();
+                }
+
+                // Body
+                ctx.fillStyle = '#1a0f2e';
+                ctx.fillRect(-50, -14, 95, 26);
+                ctx.fillStyle = '#6b4cff';
+                ctx.fillRect(-38, -22, 68, 14);
+
+                ctx.restore();
+            }
+
+            /* ==================== MAIN LOOP ==================== */
+            let bikeT = 0;
+            let raf;
+
+            function loop(now) {
+                raf = requestAnimationFrame(loop);
+                ctx.clearRect(0, 0, W, H);
+
+                drawBg();
+                drawRamp();
+                updateDeliveries(now);
+
+                // Bike
+                bikeT = (bikeT + 0.0022) % 1;
+                const pt = getPathPoint(bikeT);
+                const angle = getAngle(bikeT);
+                const scale = 0.55 + bikeT * 0.75;
+                drawBike(pt.x, pt.y, angle, scale);
+            }
+
+            function startAnim() {
+                resize();
+                bikeT = 0;
+                animStartTime = null;
+                initDeliveries();
+                if (!raf) requestAnimationFrame(loop);
+            }
+
+            function stopAnim() {
+                if (raf) cancelAnimationFrame(raf);
+                raf = null;
+            }
+
+            // Observers
+            new IntersectionObserver(e => e[0].isIntersecting ? startAnim() : stopAnim(), { threshold: 0.25 }).observe(section);
+            window.addEventListener('resize', () => { if (section.style.display === 'block') resize(); });
+        })();
+    </script>
+
+
+</body>
+
+</html>
