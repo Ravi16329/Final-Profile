@@ -1,70 +1,171 @@
- #s13 {
-     background: #05040F;
-     overflow: hidden;
-     position: relative;
-     height: 100vh;
- }
+/* ─── BASE ────────────────────────────────────── */
+#s13 {
+    background: #000;
+    overflow: hidden;
+    position: relative;
+}
 
- #footerCanvas {
-     position: absolute;
-     inset: 0;
-     width: 100%;
-     height: 100%;
-     z-index: 0;
- }
+/* TWO CANVAS LAYERS */
+#s13Wave {
+    /* bottom: 3D dot wave surface */
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
 
- .footer-overlay {
-     position: absolute;
-     inset: 0;
-     z-index: 3;
-     pointer-events: none;
- }
+#s13FX {
+    /* top: particles, rings, core, text-particles */
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
 
- .f-word {
-     position: absolute;
-     font-family: 'JetBrains Mono', monospace;
-     font-weight: 700;
-     color: #fff;
-     white-space: nowrap;
-     opacity: 0;
-     pointer-events: none;
-     text-shadow: 0 0 25px rgba(100, 200, 255, 0.9);
-     letter-spacing: 2px;
-     transition: all 0.3s ease;
- }
+/* ─── OVERLAY TEXT ────────────────────────────── */
+#s13Overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    pointer-events: none;
+}
 
- .f-word:hover {
-     color: #64c8ff;
-     text-shadow: 0 0 40px #64c8ff;
-     pointer-events: auto;
- }
+#s13Name {
+    font-family: 'Inter', 'JetBrains Mono', monospace;
+    font-size: clamp(38px, 7.5vw, 104px);
+    font-weight: 900;
+    letter-spacing: -3px;
+    opacity: 0;
+    transform: translateY(50px) scale(0.88);
+    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    background: linear-gradient(135deg,
+            #ffffff 0%, #c4b5fd 25%, #818cf8 50%,
+            #00d4ff 75%, #ffffff 100%);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: s13NameGrad 5s ease infinite;
+    filter: drop-shadow(0 0 50px rgba(108, 99, 255, 0.8)) drop-shadow(0 0 100px rgba(0, 212, 255, 0.3));
+}
 
- .f-nav {
-     font-size: clamp(15px, 1.9vw, 24px);
-     cursor: pointer;
- }
+#s13Name.in {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
 
- .f-name {
-     font-size: clamp(32px, 6vw, 82px);
-     letter-spacing: -3px;
-     font-weight: 800;
-     text-shadow: 0 0 80px rgba(100, 200, 255, 0.95);
-     cursor: default;
- }
+@keyframes s13NameGrad {
 
- .f-tag {
-     font-size: clamp(10px, 1.1vw, 15px);
-     color: rgba(180, 220, 255, 0.6);
-     font-weight: 400;
-     letter-spacing: 4px;
-     cursor: default;
- }
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
 
- .f-copy-line {
-     position: absolute;
-     font-size: 10px;
-     color: rgba(255, 255, 255, 0.12);
-     opacity: 0;
-     white-space: nowrap;
-     letter-spacing: 1px;
- }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+#s13Tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(9px, 1.15vw, 15px);
+    letter-spacing: 5px;
+    color: rgba(196, 181, 253, 0.7);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease 0.5s, transform 1s ease 0.5s;
+}
+
+#s13Tag.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#s13Nav {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+    justify-content: center;
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 1s ease 0.9s, transform 1s ease 0.9s;
+    pointer-events: auto;
+}
+
+#s13Nav.in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#s13Nav span {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(11px, 1.4vw, 17px);
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.38);
+    cursor: pointer;
+    transition: color 0.25s, text-shadow 0.25s, transform 0.2s;
+    position: relative;
+}
+
+#s13Nav span::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+#s13Nav span:hover {
+    color: #00d4ff;
+    text-shadow: 0 0 24px #00d4ff;
+    transform: translateY(-2px);
+}
+
+#s13Nav span:hover::after {
+    transform: scaleX(1);
+}
+
+#s13Copy {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.12);
+    opacity: 0;
+    transition: opacity 1s ease 1.4s;
+}
+
+#s13Copy.in {
+    opacity: 1;
+}
+
+/* ─── ANIMATED WAVE BARS (bottom of section like animated-footer) ── */
+#s13Bars {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    z-index: 4;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.s13-bar {
+    width: 100%;
+    background: rgba(108, 99, 255, 0.15);
+    will-change: transform;
+}

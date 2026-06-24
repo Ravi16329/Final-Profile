@@ -1081,23 +1081,24 @@
 
     <!-- ===== SECTION 13: FOOTER ===== -->
     <!-- ================================================================
-     SECTION 13 — DIAGONAL ZIGZAG RAMP + CAR PUSHES WORDS
-     Full replacement for your #s13 section
-     ================================================================ -->
-    <!-- ================================================================
-     SECTION 13 — FINAL: SPORTS BIKE on ramp + CAR pulls words
+     SECTION 13 — ULTIMATE 3D FOOTER
+     Combines: particle text effect + 3D dotted wave surface +
+     animated wave bars + hyperspace tunnel + energy core
+     Pure vanilla JS/Canvas — no React/Three.js needed
      ================================================================ -->
     <section class="section" id="s13">
-        <canvas id="footerCanvas"></canvas>
-        <div class="footer-overlay" id="footerOverlay">
-            <div class="f-word f-nav" id="fw-home" onclick="goToSection(0)">HOME</div>
-            <div class="f-word f-nav" id="fw-about" onclick="goToSection(1)">ABOUT</div>
-            <div class="f-word f-nav" id="fw-proj" onclick="goToSection(3)">PROJECTS</div>
-            <div class="f-word f-nav" id="fw-contact" onclick="goToSection(8)">CONTACT</div>
-
-            <div class="f-word f-name" id="fw-name">RAVEENDRA K</div>
-            <div class="f-word f-tag" id="fw-tag">BACKEND DEVELOPER • OPEN TO WORK</div>
-            <div class="f-copy-line" id="fw-copy">© 2026 RAVEENDRA KUCHU • BUILT WITH PASSION</div>
+        <canvas id="s13Wave"></canvas>
+        <canvas id="s13FX"></canvas>
+        <div id="s13Overlay">
+            <div id="s13Name">RAVEENDRA K</div>
+            <div id="s13Tag">BACKEND DEVELOPER &nbsp;·&nbsp; OPEN TO WORK</div>
+            <nav id="s13Nav">
+                <span onclick="goToSection(0)">HOME</span>
+                <span onclick="goToSection(1)">ABOUT</span>
+                <span onclick="goToSection(3)">PROJECTS</span>
+                <span onclick="goToSection(8)">CONTACT</span>
+            </nav>
+            <div id="s13Copy">© 2026 RAVEENDRA KUCHU &nbsp;·&nbsp; BUILT WITH PASSION</div>
         </div>
     </section>
 
