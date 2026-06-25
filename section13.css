@@ -169,3 +169,107 @@
     background: rgba(108, 99, 255, 0.15);
     will-change: transform;
 }
+
+
+/* ── TABLET  ≤ 768px ── */
+@media (max-width: 768px) {
+
+    #s13Overlay {
+        gap: 12px;
+        padding: 0 16px;
+    }
+
+    #s13Name {
+        font-size: clamp(28px, 8vw, 56px);
+        letter-spacing: -2px;
+        filter: drop-shadow(0 0 30px rgba(108, 99, 255, 0.8));
+    }
+
+    #s13Tag {
+        font-size: clamp(8px, 1.6vw, 12px);
+        letter-spacing: 3px;
+        text-align: center;
+    }
+
+    #s13Nav {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #s13Nav span {
+        font-size: clamp(10px, 2vw, 14px);
+        letter-spacing: 2px;
+    }
+
+    #s13Copy {
+        font-size: 8px;
+        letter-spacing: 1px;
+        text-align: center;
+        padding: 0 12px;
+    }
+}
+
+/* ── MOBILE  ≤ 480px ── */
+@media (max-width: 480px) {
+
+    #s13Overlay {
+        gap: 10px;
+        padding: 0 12px;
+        justify-content: center;
+    }
+
+    #s13Name {
+        font-size: clamp(22px, 10vw, 40px);
+        letter-spacing: -1.5px;
+        filter: drop-shadow(0 0 20px rgba(108, 99, 255, 0.8));
+        text-align: center;
+    }
+
+    #s13Tag {
+        font-size: clamp(7px, 2vw, 10px);
+        letter-spacing: 2px;
+        text-align: center;
+        line-height: 1.6;
+    }
+
+    #s13Nav {
+        gap: 14px;
+        justify-content: center;
+    }
+
+    #s13Nav span {
+        font-size: 11px;
+        letter-spacing: 1.5px;
+    }
+
+    #s13Nav span::after {
+        bottom: -2px;
+        height: 1px;
+    }
+
+    #s13Copy {
+        font-size: 7.5px;
+        letter-spacing: 0.8px;
+        text-align: center;
+        padding: 0 8px;
+        line-height: 1.5;
+    }
+
+    /* reduce canvas performance cost on small screens
+       by telling the browser it's a rendering layer */
+    #s13Wave,
+    #s13FX {
+        will-change: transform;
+        transform: translateZ(0);
+    }
+
+    /* bars take less height on mobile */
+    #s13Bars {
+        height: 80px;
+    }
+
+    .s13-bar {
+        background: rgba(108, 99, 255, 0.1);
+    }
+}
