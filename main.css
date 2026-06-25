@@ -112,74 +112,7 @@ body {
 
 
 /* === S2 ABOUT === */
-#s2 {
-    background:
-        radial-gradient(circle at left, #06B6D4, var(--bg2) 60%);
-}
 
-#s2 .g1 {
-    width: 500px;
-    height: 500px;
-    background: rgba(0, 212, 255, 0.07);
-    top: -150px;
-    left: -100px
-}
-
-.section-eyebrow {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 0.6rem
-}
-
-.section-title {
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    font-weight: 600;
-    color: #fff;
-    margin-bottom: 1.2rem;
-    letter-spacing: -1px
-}
-
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 760px;
-    width: 100%;
-    margin-top: 1.5rem
-}
-
-.about-card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 1.2rem
-}
-
-.about-card-label {
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-    font-family: 'JetBrains Mono', monospace
-}
-
-.about-card-text {
-    font-size: 13.5px;
-    color: var(--muted);
-    line-height: 1.7
-}
-
-.bio-text {
-    font-size: clamp(0.88rem, 1.2vw, 1rem);
-    color: var(--muted);
-    line-height: 1.85;
-    max-width: 680px;
-    text-align: center
-}
 
 /* === S3 SKILLS === */
 #s3 {
