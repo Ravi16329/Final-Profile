@@ -246,3 +246,255 @@
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== EYES ONLY ===== */
+
+.eye-bg {
+    position: absolute;
+    inset: 0;
+
+    z-index: 0;
+
+
+
+    overflow: hidden;
+
+    pointer-events: none;
+}
+
+.eye {
+
+    position: absolute;
+
+    width: 560px;
+    height: 250px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(ellipse,
+
+            rgba(0, 180, 255, .18),
+
+            transparent 72%);
+
+    border:
+
+        1px solid rgba(0, 220, 255, .18);
+
+    filter:
+
+        drop-shadow(0 0 60px rgba(0, 220, 255, .18));
+
+    animation:
+
+        floatEye 14s infinite ease-in-out;
+
+}
+
+.eye-left {
+
+    left: -120px;
+
+    top: 220px;
+
+}
+
+.eye-right {
+
+    right: -120px;
+
+    top: 220px;
+
+}
+
+.iris {
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(circle,
+
+            #6ee7ff,
+
+            #0ea5e9 45%,
+
+            #001427 80%);
+
+    box-shadow:
+
+        0 0 60px rgba(0, 220, 255, .4);
+
+    animation:
+
+        eyeMove 10s infinite;
+
+}
+
+.iris::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 44px;
+
+    height: 44px;
+
+    background: #000;
+
+    border-radius: 50%;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+}
+
+.blink {
+
+    position: absolute;
+
+    inset: 0;
+
+    background: #020617;
+
+    transform-origin: center;
+
+    animation:
+
+        blink 9s infinite;
+
+}
+
+/* slow blink */
+
+@keyframes blink {
+
+    0% {
+        transform: scaleY(0);
+    }
+
+    44% {
+        transform: scaleY(0);
+    }
+
+    48% {
+        transform: scaleY(1);
+    }
+
+    52% {
+        transform: scaleY(0);
+    }
+
+    100% {
+        transform: scaleY(0);
+    }
+
+}
+
+/* iris movement */
+
+@keyframes eyeMove {
+
+    0% {
+        transform:
+            translate(-50%, -50%) translateX(-12px);
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%) translateX(18px);
+    }
+
+    100% {
+        transform:
+            translate(-50%, -50%) translateX(-12px);
+    }
+
+}
+
+@keyframes floatEye {
+
+    0% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-16px);
+    }
+
+    100% {
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@media(max-width:900px) {
+
+    .eye {
+
+        width: 260px;
+
+        height: 120px;
+
+    }
+
+    .eye-left {
+
+        left: -60px;
+
+    }
+
+    .eye-right {
+
+        right: -60px;
+
+    }
+
+}
