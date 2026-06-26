@@ -1,32 +1,328 @@
+/* ─── BASE ────────────────────── */
 #s11 {
-    background: radial-gradient(circle, #F59E0B, var(--bg11) 60%);
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(249, 115, 22, 0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 80%, rgba(108, 99, 255, 0.1) 0%, transparent 50%),
+        #06060E;
+    overflow: hidden;
+    position: relative;
+}
+
+#s11Canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ─── INNER LAYOUT ────────────── */
+.s11-inner {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 20px 16px;
+    gap: 14px;
     overflow: hidden;
 }
 
-.ink-hint {
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'JetBrains Mono', monospace;
-    margin-top: 6px;
-    margin-bottom: 1.2rem;
+.s11-header {
     text-align: center;
 }
 
-.ink-stage {
-    position: relative;
-    width: 100%;
-    max-width: 620px;
-    height: 580px;
-    margin: 0 auto;
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
-    background: #fff;
+.s11-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: rgba(249, 115, 22, 0.7);
+    text-transform: uppercase;
+    margin-bottom: 6px;
 }
 
-.resume-pdf-frame {
+.s11-title {
+    font-size: clamp(1.5rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -1px;
+    margin: 0 0 4px;
+}
+
+.s11-sub {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+/* ─── HOLO STAGE ─────────────── */
+.holo-stage {
+    position: relative;
+    width: 100%;
+    max-width: 560px;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* SCAN CORNERS */
+.scan-corner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.scan-corner::before,
+.scan-corner::after {
+    content: '';
+    position: absolute;
+    background: #F97316;
+    box-shadow: 0 0 8px #F97316;
+}
+
+.scan-corner::before {
+    width: 100%;
+    height: 2px;
+    top: 0;
+    left: 0;
+}
+
+.scan-corner::after {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.sc-tl {
+    top: 32px;
+    left: 0;
+}
+
+.sc-tr {
+    top: 32px;
+    right: 0;
+    transform: scaleX(-1);
+}
+
+.sc-bl {
+    bottom: 44px;
+    left: 0;
+    transform: scaleY(-1);
+}
+
+.sc-br {
+    bottom: 44px;
+    right: 0;
+    transform: scale(-1);
+}
+
+/* ANIMATED SCAN LINE */
+.scan-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 32px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #F97316, #fff, #F97316, transparent);
+    box-shadow: 0 0 12px 3px rgba(249, 115, 22, 0.7);
+    z-index: 9;
+    pointer-events: none;
+    animation: scanMove 3s ease-in-out infinite;
+}
+
+@keyframes scanMove {
+    0% {
+        top: 32px;
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        top: calc(100% - 44px);
+        opacity: 0;
+    }
+}
+
+/* STATUS BAR */
+.holo-statusbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 10px;
+    background: rgba(249, 115, 22, 0.07);
+    border: 1px solid rgba(249, 115, 22, 0.2);
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.holo-sb-left,
+.holo-sb-right {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.holo-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #F97316;
+    box-shadow: 0 0 6px #F97316;
+    animation: hDotPulse 2s infinite;
+}
+
+@keyframes hDotPulse {
+    50% {
+        opacity: .4;
+        transform: scale(.8);
+    }
+}
+
+.holo-sb-text {
+    font-size: 9px;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 1px;
+}
+
+.holo-sb-badge {
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    background: rgba(74, 222, 128, 0.12);
+    color: #4ade80;
+    border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+/* ─── HOLO CARD ──────────────── */
+.holo-card {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(249, 115, 22, 0.35);
+    border-top: none;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.08s ease-out, box-shadow 0.2s ease;
+    box-shadow:
+        0 0 0 1px rgba(249, 115, 22, 0.12),
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        0 0 60px rgba(249, 115, 22, 0.12),
+        inset 0 0 40px rgba(249, 115, 22, 0.03);
+    cursor: none;
+}
+
+.holo-card:hover {
+    box-shadow:
+        0 0 0 1px rgba(249, 115, 22, 0.25),
+        0 40px 100px rgba(0, 0, 0, 0.7),
+        0 0 80px rgba(249, 115, 22, 0.2),
+        inset 0 0 60px rgba(249, 115, 22, 0.06);
+}
+
+/* RAINBOW SHINE that follows mouse */
+.holo-card-shine {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    pointer-events: none;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%),
+            rgba(255, 255, 255, 0.18) 0%,
+            rgba(249, 115, 22, 0.06) 30%,
+            transparent 65%);
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.holo-card:hover .holo-card-shine {
+    opacity: 1;
+}
+
+/* subtle noise texture overlay */
+.holo-card-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+    pointer-events: none;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+}
+
+/* GLITCH FLASH */
+.holo-glitch {
+    position: absolute;
+    inset: 0;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(249, 115, 22, 0.08) 45%,
+            rgba(255, 255, 255, 0.04) 50%,
+            rgba(108, 99, 255, 0.08) 55%,
+            transparent 100%);
+    animation: glitchFlash 8s ease infinite;
+}
+
+@keyframes glitchFlash {
+
+    0%,
+    48%,
+    52%,
+    100% {
+        opacity: 0;
+        transform: translateX(0);
+    }
+
+    49% {
+        opacity: 1;
+        transform: translateX(-3px);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateX(3px);
+    }
+
+    51% {
+        opacity: 1;
+        transform: translateX(-1px);
+    }
+}
+
+/* INK CANVAS */
+.holo-ink {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    cursor: none;
+}
+
+/* PDF IFRAME */
+.holo-iframe {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -35,105 +331,156 @@
     z-index: 0;
 }
 
-#inkCanvas {
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    cursor: none;
+/* ─── STATS STRIP ─────────────── */
+.holo-stats {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 8px 10px;
+    background: rgba(249, 115, 22, 0.05);
+    border: 1px solid rgba(249, 115, 22, 0.18);
+    border-top: none;
+    border-radius: 0 0 8px 8px;
 }
 
-.ink-reset-btn {
+.holo-stat {
+    flex: 1;
+    text-align: center;
+}
+
+.holo-stat-val {
     display: block;
-    margin: 18px auto 0;
-    padding: 10px 22px;
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--text);
-    font-size: 12.5px;
     font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(10px, 1.5vw, 14px);
+    font-weight: 700;
+    color: #F97316;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.holo-stat-lbl {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 7px;
+    color: rgba(255, 255, 255, 0.3);
+    letter-spacing: 1.5px;
+    margin-top: 2px;
+}
+
+.holo-stat-div {
+    width: 1px;
+    height: 28px;
+    background: rgba(249, 115, 22, 0.2);
+    flex-shrink: 0;
+}
+
+/* ─── ACTIONS ────────────────── */
+.s11-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.s11-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 11px 22px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    transition: background 0.25s, border-color 0.25s;
+    transition: all 0.25s;
+    border: none;
 }
 
-.ink-reset-btn:hover {
-    background: rgba(249, 115, 22, 0.12);
-    border-color: rgba(249, 115, 22, 0.4);
+.s11-btn-primary {
+    background: linear-gradient(135deg, #F97316, #fb923c);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(249, 115, 22, 0.35);
 }
 
-@media (max-width: 640px) {
-    .ink-stage {
-        height: 460px;
-    }
+.s11-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(249, 115, 22, 0.5);
 }
 
+.s11-btn-ghost {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
+.s11-btn-ghost:hover {
+    background: rgba(249, 115, 22, 0.08);
+    border-color: rgba(249, 115, 22, 0.3);
+    color: #F97316;
+}
 
-
-/* ================================================================
-   SECTION 11 — INK REVEAL RESUME
-   ================================================================ */
-
-/* ── TABLET  ≤ 768px ── */
+/* ─── RESPONSIVE ─────────────── */
 @media (max-width: 768px) {
-
-    #s11 .section-inner {
-        padding-top: 60px;
-        padding-left: 16px;
-        padding-right: 16px;
-        padding-bottom: 80px;
-        justify-content: flex-start;
-        overflow-y: auto;
+    .s11-inner {
+        padding: 60px 14px 60px;
+        gap: 10px;
     }
 
-    .ink-hint {
-        font-size: 10px;
-        margin-bottom: 0.9rem;
+    .s11-title {
+        font-size: clamp(1.3rem, 5vw, 2rem);
     }
 
-    .ink-stage {
-        height: 480px;
-        border-radius: 12px;
+    .scan-corner {
+        width: 18px;
+        height: 18px;
     }
 
-    .ink-reset-btn {
-        font-size: 11.5px;
-        padding: 9px 18px;
-        margin-top: 14px;
+    .holo-stat-val {
+        font-size: 11px;
+    }
+
+    .holo-stat-lbl {
+        font-size: 6px;
+    }
+
+    .s11-btn {
+        padding: 10px 18px;
+        font-size: 11px;
     }
 }
 
-/* ── MOBILE  ≤ 480px ── */
 @media (max-width: 480px) {
-
-    #s11 .section-inner {
-        padding-top: 54px;
-        padding-left: 10px;
-        padding-right: 10px;
-        padding-bottom: 100px;
+    .s11-inner {
+        padding: 54px 10px 80px;
     }
 
-    .ink-hint {
-        font-size: 9.5px;
-        margin-bottom: 0.7rem;
-        line-height: 1.5;
+    .s11-title {
+        font-size: clamp(1.1rem, 7vw, 1.6rem);
     }
 
-    .ink-stage {
-        height: 400px;
-        border-radius: 10px;
-    }
-
-    /* cursor:none looks broken on touch — restore default */
-    #inkCanvas {
+    .holo-ink {
         cursor: default;
     }
 
-    .ink-reset-btn {
-        font-size: 11px;
-        padding: 8px 16px;
-        margin-top: 10px;
+    .holo-card {
+        cursor: default;
+    }
+
+    .scan-corner {
+        display: none;
+    }
+
+    .s11-btn {
         width: 100%;
-        text-align: center;
+        justify-content: center;
+    }
+
+    .s11-actions {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
     }
 }

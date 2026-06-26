@@ -907,26 +907,103 @@
 
     <!-- ===== SECTION 11: RESUME ===== -->
     <!-- ================================================================
-     SECTION 11: RESUME — INK REVEAL EFFECT
-     Move cursor over the mask to "scratch off" ink and reveal resume
-     Replace your entire #s11 section with this
+     SECTION 11 — HOLOGRAPHIC RESUME CARD
+     Floating 3D card, scanning beam, particle aura, tilt-on-hover
      ================================================================ -->
     <section class="section" id="s11">
         <div class="bg-grid"></div>
-        <div class="section-inner">
-            <div class="section-eyebrow">10 · Resume</div>
-            <h2 class="section-title">My Resume</h2>
-            <p class="ink-hint">move your cursor across the ink to reveal the resume underneath</p>
+        <canvas id="s11Canvas"></canvas>
 
-            <div class="ink-stage" id="inkStage">
-                <iframe src="Raveendra_Kuchu_Resume.pdf" class="resume-pdf-frame" title="Resume preview">
-                </iframe>
-                <canvas id="inkCanvas"></canvas>
+        <div class="s11-inner">
+            <div class="s11-header">
+                <div class="s11-eyebrow">10 · RESUME</div>
+                <h2 class="s11-title">My Resume</h2>
+                <p class="s11-sub">Hover to interact &nbsp;·&nbsp; Drag to reveal</p>
             </div>
 
-            <button class="ink-reset-btn" id="inkResetBtn">↺ Re-cover with ink</button>
+            <!-- HOLOGRAPHIC CARD STAGE -->
+            <div class="holo-stage" id="holoStage">
+
+                <!-- CORNER SCAN BRACKETS -->
+                <div class="scan-corner sc-tl"></div>
+                <div class="scan-corner sc-tr"></div>
+                <div class="scan-corner sc-bl"></div>
+                <div class="scan-corner sc-br"></div>
+
+                <!-- SCAN LINE -->
+                <div class="scan-line" id="scanLine"></div>
+
+                <!-- STATUS BAR TOP -->
+                <div class="holo-statusbar">
+                    <div class="holo-sb-left">
+                        <span class="holo-dot"></span>
+                        <span class="holo-sb-text">RAVEENDRA KUCHU · RESUME.PDF</span>
+                    </div>
+                    <div class="holo-sb-right">
+                        <span class="holo-sb-badge">VERIFIED</span>
+                        <span class="holo-sb-text">2026</span>
+                    </div>
+                </div>
+
+                <!-- THE CARD ITSELF -->
+                <div class="holo-card" id="holoCard">
+                    <div class="holo-card-shine" id="holoShine"></div>
+                    <div class="holo-card-noise"></div>
+                    <div class="holo-glitch" id="holoGlitch"></div>
+
+                    <!-- Ink canvas overlay -->
+                    <canvas id="inkCanvas" class="holo-ink"></canvas>
+
+                    <!-- PDF underneath -->
+                    <iframe src="Raveendra_Kuchu_Resume.pdf" class="holo-iframe" title="Resume">
+                    </iframe>
+                </div>
+
+                <!-- STATS STRIP BELOW CARD -->
+                <div class="holo-stats">
+                    <div class="holo-stat">
+                        <span class="holo-stat-val">3+</span>
+                        <span class="holo-stat-lbl">YRS EXP</span>
+                    </div>
+                    <div class="holo-stat-div"></div>
+                    <div class="holo-stat">
+                        <span class="holo-stat-val">11+</span>
+                        <span class="holo-stat-lbl">PROJECTS</span>
+                    </div>
+                    <div class="holo-stat-div"></div>
+                    <div class="holo-stat">
+                        <span class="holo-stat-val">Node.js</span>
+                        <span class="holo-stat-lbl">PRIMARY</span>
+                    </div>
+                    <div class="holo-stat-div"></div>
+                    <div class="holo-stat">
+                        <span class="holo-stat-val">Java</span>
+                        <span class="holo-stat-lbl">BACKEND</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DOWNLOAD / RESET ROW -->
+            <div class="s11-actions">
+                <button class="s11-btn s11-btn-primary" onclick="window.open('Raveendra_Kuchu_Resume.pdf','_blank')">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download PDF
+                </button>
+                <button class="s11-btn s11-btn-ghost" id="inkResetBtn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="1 4 1 10 7 10" />
+                        <path d="M3.51 15a9 9 0 1 0 .49-3.33" />
+                    </svg>
+                    Re-cover ink
+                </button>
+            </div>
         </div>
     </section>
+
 
     <!-- ===== SECTION 12: CONTACT ===== -->
     <section class="section" id="s12">
