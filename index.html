@@ -910,6 +910,13 @@
      SECTION 11 — HOLOGRAPHIC RESUME CARD
      Floating 3D card, scanning beam, particle aura, tilt-on-hover
      ================================================================ -->
+    <!-- ================================================================
+     SECTION 11 — HOLOGRAPHIC RESUME (FIXED)
+     1. Full-page resume visible
+     2. Re-cover ink button works correctly
+     ================================================================ -->
+
+    <!-- ============ HTML (replace your #s11) ============ -->
     <section class="section" id="s11">
         <div class="bg-grid"></div>
         <canvas id="s11Canvas"></canvas>
@@ -918,22 +925,16 @@
             <div class="s11-header">
                 <div class="s11-eyebrow">10 · RESUME</div>
                 <h2 class="s11-title">My Resume</h2>
-                <p class="s11-sub">Hover to interact &nbsp;·&nbsp; Drag to reveal</p>
+                <p class="s11-sub">Move cursor over ink to reveal &nbsp;·&nbsp; Click button to re-cover</p>
             </div>
 
-            <!-- HOLOGRAPHIC CARD STAGE -->
             <div class="holo-stage" id="holoStage">
-
-                <!-- CORNER SCAN BRACKETS -->
                 <div class="scan-corner sc-tl"></div>
                 <div class="scan-corner sc-tr"></div>
                 <div class="scan-corner sc-bl"></div>
                 <div class="scan-corner sc-br"></div>
+                <div class="scan-line"></div>
 
-                <!-- SCAN LINE -->
-                <div class="scan-line" id="scanLine"></div>
-
-                <!-- STATUS BAR TOP -->
                 <div class="holo-statusbar">
                     <div class="holo-sb-left">
                         <span class="holo-dot"></span>
@@ -945,45 +946,29 @@
                     </div>
                 </div>
 
-                <!-- THE CARD ITSELF -->
                 <div class="holo-card" id="holoCard">
                     <div class="holo-card-shine" id="holoShine"></div>
                     <div class="holo-card-noise"></div>
-                    <div class="holo-glitch" id="holoGlitch"></div>
-
-                    <!-- Ink canvas overlay -->
+                    <div class="holo-glitch"></div>
                     <canvas id="inkCanvas" class="holo-ink"></canvas>
-
-                    <!-- PDF underneath -->
-                    <iframe src="Raveendra_Kuchu_Resume.pdf" class="holo-iframe" title="Resume">
-                    </iframe>
+                    <iframe src="Raveendra_Kuchu_Resume.pdf" class="holo-iframe" title="Resume"></iframe>
                 </div>
 
-                <!-- STATS STRIP BELOW CARD -->
                 <div class="holo-stats">
-                    <div class="holo-stat">
-                        <span class="holo-stat-val">3+</span>
-                        <span class="holo-stat-lbl">YRS EXP</span>
-                    </div>
+                    <div class="holo-stat"><span class="holo-stat-val">3+</span><span class="holo-stat-lbl">YRS
+                            EXP</span></div>
                     <div class="holo-stat-div"></div>
-                    <div class="holo-stat">
-                        <span class="holo-stat-val">11+</span>
-                        <span class="holo-stat-lbl">PROJECTS</span>
-                    </div>
+                    <div class="holo-stat"><span class="holo-stat-val">11+</span><span
+                            class="holo-stat-lbl">PROJECTS</span></div>
                     <div class="holo-stat-div"></div>
-                    <div class="holo-stat">
-                        <span class="holo-stat-val">Node.js</span>
-                        <span class="holo-stat-lbl">PRIMARY</span>
-                    </div>
+                    <div class="holo-stat"><span class="holo-stat-val">Node.js</span><span
+                            class="holo-stat-lbl">PRIMARY</span></div>
                     <div class="holo-stat-div"></div>
-                    <div class="holo-stat">
-                        <span class="holo-stat-val">Java</span>
-                        <span class="holo-stat-lbl">BACKEND</span>
-                    </div>
+                    <div class="holo-stat"><span class="holo-stat-val">Java</span><span
+                            class="holo-stat-lbl">BACKEND</span></div>
                 </div>
             </div>
 
-            <!-- DOWNLOAD / RESET ROW -->
             <div class="s11-actions">
                 <button class="s11-btn s11-btn-primary" onclick="window.open('Raveendra_Kuchu_Resume.pdf','_blank')">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1003,6 +988,7 @@
             </div>
         </div>
     </section>
+
 
 
     <!-- ===== SECTION 12: CONTACT ===== -->

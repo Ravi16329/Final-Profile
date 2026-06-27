@@ -1,7 +1,4 @@
-
-
 (function () {
-    const stage = document.getElementById('holoStage');
     const card = document.getElementById('holoCard');
     const shine = document.getElementById('holoShine');
     const canvas = document.getElementById('inkCanvas');
@@ -12,33 +9,47 @@
 
     const ctx = canvas.getContext('2d');
     const bgCtx = bgCV.getContext('2d');
-    let W, H;
+    let W = 0, H = 0;
+    const MASK = '20,16,12';
 
-    /* ── RESIZE BOTH CANVASES ── */
+    /* ── RESIZE ── */
     function resize() {
-        const r = section.getBoundingClientRect();
-        bgCV.width = r.width || window.innerWidth;
-        bgCV.height = r.height || window.innerHeight;
+        /* bg canvas */
+        const sr = section.getBoundingClientRect();
+        bgCV.width = sr.width || window.innerWidth;
+        bgCV.height = sr.height || window.innerHeight;
+
+        /* ink canvas — matches the card element */
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const cr = canvas.parentElement.getBoundingClientRect();
-        W = cr.width; H = cr.height;
+        W = cr.width;
+        H = cr.height;
+        if (W < 1 || H < 1) return;   /* not ready yet */
         canvas.width = Math.round(W * dpr);
         canvas.height = Math.round(H * dpr);
         canvas.style.width = W + 'px';
         canvas.style.height = H + 'px';
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        repaintInk();
+        fillInk();   /* re-cover after resize */
     }
-    resize();
+
+    /* ── FILL CANVAS SOLID DARK INK ── */
+    function fillInk() {
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.fillStyle = `rgb(${MASK})`;
+        ctx.fillRect(0, 0, W, H);
+    }
+
+    /* delay first resize until layout is painted */
+    requestAnimationFrame(() => { resize(); });
     window.addEventListener('resize', resize);
 
-    /* ── BACKGROUND PARTICLE FIELD ── */
-    let bgTick = 0, bgRAF = null;
-    const bParts = Array.from({ length: 120 }, () => ({
+    /* ── BACKGROUND PARTICLE NETWORK ── */
+    const bParts = Array.from({ length: 100 }, () => ({
         x: Math.random(), y: Math.random(),
         vx: (Math.random() - .5) * .0003, vy: (Math.random() - .5) * .0003,
-        r: Math.random() * 1.4 + 0.4, hue: 20 + Math.random() * 40,
-        a: Math.random() * .5 + .1,
+        r: Math.random() * 1.3 + 0.4, hue: 20 + Math.random() * 40,
+        a: Math.random() * .45 + .1,
     }));
 
     function drawBg() {
@@ -53,7 +64,6 @@
             bgCtx.fillStyle = `hsla(${p.hue},80%,65%,${p.a})`;
             bgCtx.fill();
         });
-        /* subtle connection lines */
         for (let i = 0; i < bParts.length; i++) {
             for (let j = i + 1; j < bParts.length; j++) {
                 const dx = (bParts[i].x - bParts[j].x) * bW;
@@ -69,22 +79,14 @@
                 }
             }
         }
-        bgRAF = requestAnimationFrame(drawBg);
+        requestAnimationFrame(drawBg);
     }
     drawBg();
 
-    /* ── INK REVEAL ── */
-    const MASK = [20, 16, 12];
+    /* ── INK REVEAL PARAMETERS ── */
     const BRUSH = 130, LIFE = 650, R0 = 10, RVARY = .45, STEP = 10, MAX = 220, SEG = 36;
     const WOB = [.14, .08, .05], GIR = .2, GS = [.95, .88, 0];
     let stamps = [], inkRunning = false, lastPos = null;
-
-    function repaintInk() {
-        ctx.globalCompositeOperation = 'source-over';
-        ctx.fillStyle = `rgb(${MASK})`;
-        ctx.fillRect(0, 0, W, H);
-    }
-    repaintInk();
 
     function carve(x, y, r, seed, alpha) {
         const g = ctx.createRadialGradient(x, y, r * GIR, x, y, r);
@@ -103,102 +105,91 @@
     }
 
     function addStamp(x, y) {
-
+        if (stamps.length >= MAX) stamps.shift();
         stamps.push({
-            x,
-            y,
+            x, y,
+            born: performance.now(),
             seed: Math.random() * Math.PI * 2,
-            rmax: BRUSH
+            rmax: BRUSH * (1 - RVARY + Math.random() * RVARY)
         });
-
     }
+
     function stampAlong(x, y) {
         if (!lastPos) { addStamp(x, y); }
         else {
-            const dx = x - lastPos.x, dy = y - lastPos.y, dist = Math.hypot(dx, dy);
+            const dx = x - lastPos.x, dy = y - lastPos.y;
+            const dist = Math.hypot(dx, dy);
             const steps = Math.max(1, Math.ceil(dist / STEP));
-            for (let i = 1; i <= steps; i++) addStamp(lastPos.x + dx * i / steps, lastPos.y + dy * i / steps);
+            for (let i = 1; i <= steps; i++)
+                addStamp(lastPos.x + dx * i / steps, lastPos.y + dy * i / steps);
         }
         lastPos = { x, y };
     }
 
     function inkLoop() {
-
-        ctx.globalCompositeOperation = "destination-out";
-
-        while (stamps.length) {
-
-            const s = stamps.shift();
-
-            carve(
-                s.x,
-                s.y,
-                s.rmax,
-                s.seed,
-                1
-            );
-
+        const now = performance.now();
+        /* repaint solid ink */
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.fillStyle = `rgb(${MASK})`;
+        ctx.fillRect(0, 0, W, H);
+        /* carve holes */
+        ctx.globalCompositeOperation = 'destination-out';
+        for (let i = stamps.length - 1; i >= 0; i--) {
+            const t = (now - stamps[i].born) / LIFE;
+            if (t >= 1) { stamps.splice(i, 1); continue; }
+            const ease = 1 - Math.pow(1 - t, 3);
+            carve(stamps[i].x, stamps[i].y,
+                R0 + (stamps[i].rmax - R0) * ease,
+                stamps[i].seed,
+                1 - t * t);
         }
-
-        inkRunning = false;
-
+        stamps.length ? requestAnimationFrame(inkLoop) : (inkRunning = false);
     }
+
     function startInk() {
-
-        if (inkRunning) return;
-
-        inkRunning = true;
-
-        requestAnimationFrame(() => {
-
-            inkLoop();
-
-        });
-
+        if (!inkRunning) { inkRunning = true; requestAnimationFrame(inkLoop); }
     }
 
     function getPos(e) {
         const r = canvas.getBoundingClientRect();
         return { x: e.clientX - r.left, y: e.clientY - r.top };
     }
+
     canvas.addEventListener('mouseenter', e => { const p = getPos(e); lastPos = p; stampAlong(p.x, p.y); startInk(); });
     canvas.addEventListener('mousemove', e => { const p = getPos(e); stampAlong(p.x, p.y); startInk(); });
     canvas.addEventListener('mouseleave', () => { lastPos = null; });
     canvas.addEventListener('touchmove', e => {
         e.preventDefault();
         const t = e.touches[0], r = canvas.getBoundingClientRect();
-        stampAlong(t.clientX - r.left, t.clientY - r.top); startInk();
+        stampAlong(t.clientX - r.left, t.clientY - r.top);
+        startInk();
     }, { passive: false });
 
+    /* ── RE-COVER BUTTON (fixed) ── */
     if (resetBtn) {
-
-        resetBtn.addEventListener("click", () => {
-
+        resetBtn.addEventListener('click', () => {
+            /* 1. kill animation */
+            inkRunning = false;
             stamps = [];
             lastPos = null;
-
-            ctx.globalCompositeOperation = "source-over";
-
-            ctx.clearRect(0, 0, W, H);
-
+            /* 2. restore normal composite mode */
+            ctx.globalCompositeOperation = 'source-over';
+            /* 3. paint solid ink over entire canvas */
             ctx.fillStyle = `rgb(${MASK})`;
-
             ctx.fillRect(0, 0, W, H);
-
         });
-
     }
 
-    /* ── 3D TILT ON HOVER ── */
+    /* ── 3D TILT ── */
     card.addEventListener('mousemove', e => {
         const r = card.getBoundingClientRect();
         const px = (e.clientX - r.left) / r.width;
         const py = (e.clientY - r.top) / r.height;
-        const rx = -(py - .5) * 14;
-        const ry = (px - .5) * 14;
-        card.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) scale(1.01)`;
-        shine.style.setProperty('--mx', (px * 100) + '%');
-        shine.style.setProperty('--my', (py * 100) + '%');
+        card.style.transform = `perspective(1000px) rotateX(${-(py - .5) * 14}deg) rotateY(${(px - .5) * 14}deg) scale(1.01)`;
+        if (shine) {
+            shine.style.setProperty('--mx', (px * 100) + '%');
+            shine.style.setProperty('--my', (py * 100) + '%');
+        }
     });
     card.addEventListener('mouseleave', () => {
         card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';

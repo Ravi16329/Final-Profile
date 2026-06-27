@@ -484,3 +484,46 @@
         width: 100%;
     }
 }
+
+
+/* ── FULL-PAGE CARD: holo-stage fills all available vertical space ── */
+.s11-inner {
+    /* override: tighter padding so card gets max height */
+    padding: 16px 20px 12px !important;
+    gap: 10px !important;
+}
+
+.holo-stage {
+    /* fill all remaining space between header and buttons */
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    max-width: 580px !important;
+}
+
+.holo-card {
+    /* card fills the stage minus statusbar + statsbar heights */
+    flex: 1 1 0 !important;
+    min-height: 0 !important;
+    /* ensure PDF is not clipped */
+    height: auto !important;
+}
+
+.holo-iframe {
+    /* make iframe fill parent fully */
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    display: block !important;
+}
+
+/* tighten header on desktop so card gets more room */
+.s11-header {
+    margin-bottom: 0;
+}
+
+.s11-title {
+    margin-bottom: 2px !important;
+}
